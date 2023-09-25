@@ -39,6 +39,7 @@ class ErewhonScraper:
             new_item = Item(image, label, price)
             self.items.append(new_item)
             # print(new_item)
+            self.print_items()
 
     def print_items(self):
         for item in self.items:

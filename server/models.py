@@ -3,8 +3,8 @@ from sqlalchemy.ext.associationproxy import association_proxy
 
 from config import db
 
-class Consumer:
-    __tablename__ = 'consumers'
+class Customer:
+    __tablename__ = 'customers'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
@@ -14,7 +14,7 @@ class Cart:
     __tablename__ = 'carts'
 
     id = db.Column(db.Integer, primary_key=True)
-    consumer_id = db.Column(db.Integer, db.ForeignKey('consumers.id'))
+    consumer_id = db.Column(db.Integer, db.ForeignKey('customers.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
 
 class Product:
