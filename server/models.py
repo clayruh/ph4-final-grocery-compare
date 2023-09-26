@@ -34,7 +34,7 @@ class Product(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    customer_id = db.Column(db.Integer, db.ForeignKey('consumers.id'))
+    consumer_id = db.Column(db.Integer, db.ForeignKey('consumers.id'))
     supermarket_id = db.Column(db.Integer, db.ForeignKey('supermarkets.id'))
 
     consumer = db.relationship('Consumer', back_populates='products')
