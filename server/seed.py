@@ -49,7 +49,7 @@ if __name__ == '__main__':
         product_list = []
 
         for _ in range(50):
-            product = Product(name= faker.product(), consumer_id = consumer_list, supermarket_id = supermarket_list)
+            product = Product(name= faker.word(), consumer_id = consumer_list, supermarket_id = supermarket_list)
 
             product_list.append(product)
             db.session.add(product_list)

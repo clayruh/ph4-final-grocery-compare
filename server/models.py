@@ -47,22 +47,28 @@ class Product(db.Model, SerializerMixin):
     supermarket_id = db.Column(db.Integer, db.ForeignKey('supermarkets.id'))
 
 # this for the main connection which is the Consumer and Supermarket
-    consumer = db.relationship('Consumer', back_populates='products')
-    supermarket = db.relationship('Supermarket', back_populates='products')
-    serialize_rules = ('-supermarket.products', '-consumer.products')
+    # consumer = db.relationship('Consumer', back_populates='products')
+    # supermarket = db.relationship('Supermarket', back_populates='products')
+    # serialize_rules = ('-supermarket.products', '-consumer.products')
+
 
 # this is for the second connection which is Consumer and CartItems
     cart_items = db.relationship("CartItem", back_populates='product')
     consumer = association_proxy('cart_items', 'consumer')
     serialize_rules = ('-cart_items.product', )
 
+# this is for the second connection which is Consumer and Cart
+
+
 # this for the third connection which is the Price and Supermarket
     prices = db.relationship("Price", back_populates='product')
     supermarket = association_proxy("prices", "supermarket")
+
     serialize_rules = ('-prices.product', )
    
     def __repr__(self):
         return f"Product obj{self.id}: Item name: {self.name}"
+
 
 # this is the third bridge connecting Product and Supermarket
 class Price(db.Model, SerializerMixin):
