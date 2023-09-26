@@ -7,7 +7,7 @@ from models import Consumer, CartItem, Product, Price, Supermarket
 # Remote library imports
 from faker import Faker
 
-faker = Faker
+faker = Faker()
 
 # Local imports
 from app import app

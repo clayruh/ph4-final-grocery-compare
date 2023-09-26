@@ -13,11 +13,6 @@ class Consumer(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
 
-
-    # products = db.relationship('Product', back_populates='consumer')
-    # supermarkets = association_proxy('products', 'supermarket')
-    # serialize_rules = ('-products.consumer',)
-
 # this is the connection between the first bridge the CartItems and the Product
     cart_items = db.relationship("CartItem", back_populates='consumer')
     product = association_proxy('cart_items', 'product')
@@ -59,30 +54,18 @@ class Product(db.Model, SerializerMixin):
     consumer_id = db.Column(db.Integer, db.ForeignKey('consumers.id'))
     supermarket_id = db.Column(db.Integer, db.ForeignKey('supermarkets.id'))
 
-
-    # consumer = db.relationship('Consumer', back_populates='products')
-    # supermarket = db.relationship('Supermarket', back_populates='products')
-    # serialize_rules = ('-supermarket.products', '-consumer.products')
-
-
 # this is for the first connection which is Consumer and CartItems
     cart_items = db.relationship("CartItem", back_populates='product')
     consumer = association_proxy('cart_items', 'consumer')
     serialize_rules = ('-cart_items.product', '-prices.product')
 
-
-
-
 # this for the second connection which is the Price and Supermarket
     prices = db.relationship("Price", back_populates='product')
     supermarket = association_proxy("prices", "supermarket")
-
-    
     
     def __repr__(self):
         return f"Product obj{self.id}: Item name: {self.name}"
-
-
+    
 # this is the second bridge connecting Product and Supermarket
 class Price(db.Model, SerializerMixin):
     __tablename__ = 'prices'
