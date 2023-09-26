@@ -1,7 +1,7 @@
 import time
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from models import Product, db
+from models import db, Product, Price
 import ipdb
 # from ..server.config import db
 
@@ -9,6 +9,7 @@ import ipdb
 class ErewhonScraper:
     def __init__(self):
         self.items = []
+        self.prices = []
         self.browser = self.init_browser()
 
     def init_browser(self):
@@ -35,13 +36,15 @@ class ErewhonScraper:
                 'img') if product.find('div', class_='img') else None
 
             price = price_tag.label.string if price_tag else None
-            label = header_tag.get_text() if header_tag else None
+            name = header_tag.get_text() if header_tag else None
             image = img_tag.get('src') if img_tag else None
 
-            new_product = Product(image, label, price)
+            new_product = Product(image, name)
+            new_price = Price(price, supermarket_id = 1)
             # self.products.append(new_product)
             print(new_product)
             db.session.add(new_product)
+            db.session.add(new_price)
 
         db.session.commit()
         self.print_items()

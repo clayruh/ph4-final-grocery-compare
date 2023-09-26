@@ -4,12 +4,10 @@
 from random import randint, choice as rc
 from models import Consumer, CartItem, Product, Price, Supermarket
 
-import random
-
 # Remote library imports
 from faker import Faker
 
-faker = Faker
+faker = Faker()
 
 # Local imports
 from app import app
@@ -53,7 +51,7 @@ if __name__ == '__main__':
         product_list = []
 
         for _ in range(50):
-            product = Product(name= faker.word(), consumer_id = consumer_list, supermarket_id = supermarket_list)
+            product = Product(name= faker.word(), consumer_id = random.randint(1, 15), supermarket_id = random.randint(1,5))
             product_list.append(product)
             db.session.add(product_list)
             db.session.commit()
