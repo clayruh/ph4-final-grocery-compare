@@ -13,13 +13,6 @@ class Consumer(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
 
-<<<<<<< HEAD
-    # products = db.relationship('Product', back_populates='consumer')
-    # supermarkets = association_proxy('products', 'supermarket')
-    # serialize_rules = ('-products.consumer',)
-
-=======
->>>>>>> a77f5b4f71b9ad3e8d3ddaa36387d7101898ce50
 # this is the connection between the first bridge the CartItems and the Product
     cart_items = db.relationship("CartItem", back_populates='consumer')
     product = association_proxy('cart_items', 'product')
@@ -40,21 +33,10 @@ class CartItem(db.Model, SerializerMixin):
     serialize_rules = ('-consumer.cart_items', '-product.cart_items')
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> a77f5b4f71b9ad3e8d3ddaa36387d7101898ce50
 class Product(db.Model, SerializerMixin):
 
     __tablename__ = 'products'
 
-<<<<<<< HEAD
-    def __str__(self):
-        item_str = ''
-        item_str += f'image: {self.image}\n'
-        item_str += f'name: {self.name}\n'
-        item_str += f'price: {self.price}\n'
-=======
 
     def __init__(self, image, label):
         self.image = image
@@ -64,45 +46,21 @@ class Product(db.Model, SerializerMixin):
         item_str = ''
         item_str += f'image: {self.image}\n'
         item_str += f'label: {self.label}\n'
->>>>>>> a77f5b4f71b9ad3e8d3ddaa36387d7101898ce50
         item_str += '------------------'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     image = db.Column(db.String)
-<<<<<<< HEAD
-    price = db.Column(db.Integer, nullable=False)
-=======
->>>>>>> a77f5b4f71b9ad3e8d3ddaa36387d7101898ce50
 
-    consumer_id = db.Column(db.Integer, db.ForeignKey('consumers.id'))
-    supermarket_id = db.Column(db.Integer, db.ForeignKey('supermarkets.id'))
-
-<<<<<<< HEAD
-    # consumer = db.relationship('Consumer', back_populates='products')
-    # supermarket = db.relationship('Supermarket', back_populates='products')
-    # serialize_rules = ('-supermarket.products', '-consumer.products')
-
-
-=======
->>>>>>> a77f5b4f71b9ad3e8d3ddaa36387d7101898ce50
 # this is for the first connection which is Consumer and CartItems
     cart_items = db.relationship("CartItem", back_populates='product')
     consumer = association_proxy('cart_items', 'consumer')
     serialize_rules = ('-cart_items.product', '-prices.product')
 
-<<<<<<< HEAD
-
-# this for the second connection which is the Price and Supermarket
-    prices = db.relationship("Price", back_populates='product')
-    supermarket = association_proxy("prices", "supermarket")
-
-=======
 # this for the second connection which is the Price and Supermarket
     prices = db.relationship("Price", back_populates='product')
     supermarket = association_proxy("prices", "supermarket")
     
->>>>>>> a77f5b4f71b9ad3e8d3ddaa36387d7101898ce50
     def __repr__(self):
         return f"Product obj{self.id}: Item name: {self.name}"
     
