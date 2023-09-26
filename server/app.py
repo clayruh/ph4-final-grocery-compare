@@ -4,7 +4,7 @@ from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
-from models import Product
+from models import Product, Consumer, Cart, Price, Supermarket
 
 # Views go here!
 @app.route('/')
@@ -15,3 +15,4 @@ def index():
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
 
+#
