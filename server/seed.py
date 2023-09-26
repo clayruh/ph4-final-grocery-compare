@@ -6,11 +6,10 @@ from app import app
 from random import randint, choice as rc
 from models import Consumer, CartItem, Product, Price, Supermarket
 
-import random
-
 # Remote library imports
 from faker import Faker
 
+faker = Faker()
 faker = Faker()
 
 # Local imports
