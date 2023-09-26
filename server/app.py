@@ -4,7 +4,7 @@ from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
-from models import Product, Consumer, Cart, Price, Supermarket
+from models import Product, Consumer, CartItem, Price, Supermarket
 
 # Views go here!
 @app.route('/')
@@ -43,7 +43,7 @@ def update_consumer(id):
 
 # =====================================Cart===============================================
 
-@app.get('/carts/<int:id>')
+@app.get('/cart_items/<int:id>')
 def get_cart_by_id(id):
     try:
         cart = Cart.query.filter(Cart.id == id).first()
@@ -52,26 +52,26 @@ def get_cart_by_id(id):
         return {"error": "cart not found"}, 404
 
 
-@app.post('/carts')
-def create_cart():
+@app.post('/cart_items')
+def create_cart_item():
     
     data = request.json
 
-    new_cart = Cart(consumer_id = data['consumer_id'], product = data['product_id'])
+    new_cart_item = CartItem(consumer_id = data['consumer_id'], product = data['product_id'])
 
-    db.session.add(new_cart)
+    db.session.add(new_cart_item)
     db.session.commit()
 
-    return new_cart.to_dict(), 201
+    return new_cart_item.to_dict(), 201
     
 
-@app.delete('/cart/<int:id>')
+@app.delete('/cart_items/<int:id>')
 def delete_cart(id):
     try: 
-        cart = Cart.query.filter(Cart.id == id).first()
-        db.session.delete(cart)
+        cart_item = CartItem.query.filter(CartItem.id == id).first()
+        db.session.delete(cart_item)
         db.session.commit()
-        return cart.to_dict(), 204
+        return cart_item.to_dict(), 204
     except: 
         return {"error": "cart not found"}, 404
 
