@@ -50,19 +50,19 @@ class Product(db.Model, SerializerMixin):
     supermarket_id = db.Column(db.Integer, db.ForeignKey('supermarkets.id'))
 
 # this for the main connection which is the Consumer and Supermarket
-    consumer = db.relationship('Consumer', back_populates='products')
-    supermarket = db.relationship('Supermarket', back_populates='products')
-    serialize_rules = ('-supermarket.products', '-consumer.products')
+    # consumer = db.relationship('Consumer', back_populates='products')
+    # supermarket = db.relationship('Supermarket', back_populates='products')
+    # serialize_rules = ('-supermarket.products', '-consumer.products')
 
 # this is for the second connection which is Consumer and Cart
     carts = db.relationship("Cart", back_populates='product')
     consumer = association_proxy('carts', 'consumer')
-    serialize_rules = ('-carts.product', )
+    serialize_rules = ('-carts.product', '-prices.product')
 
 # this for the third connection which is the Price and Supermarket
     prices = db.relationship("Price", back_populates='product')
     supermarket = association_proxy("prices", "supermarket")
-    serialize_rules = ('-prices.product', )
+    # serialize_rules = ('-prices.product', )
 
 
     def __init__(self, name):
