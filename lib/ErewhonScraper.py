@@ -3,6 +3,7 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 from Item import Item
 import ipdb
+from ..server.config import db
 
 
 class ErewhonScraper:
@@ -16,7 +17,8 @@ class ErewhonScraper:
         return webdriver.Chrome(options=options)
 
     def get_page(self):
-        self.browser.get('https://shop.erewhonmarket.com/')
+        self.browser.get(
+            'https://shop.erewhonmarket.com/subcategory/55001/organic-fruits')
         time.sleep(2)
         html_text = self.browser.page_source
         return BeautifulSoup(html_text, 'lxml')
@@ -39,6 +41,10 @@ class ErewhonScraper:
             new_item = Item(image, label, price)
             self.items.append(new_item)
             # print(new_item)
+            db.session.add(new_item)
+            db.session.commit()
+
+        self.print_items()
 
     def print_items(self):
         for item in self.items:

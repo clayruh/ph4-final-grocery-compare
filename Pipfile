@@ -17,6 +17,9 @@ beautifulsoup4 = "4.11.1"
 requests =  "*"
 selenium = "*"
 lxml = "*"
+requests = "*"
+selenium = "*"
+lxml = "*"
 
 [dev-packages]
 
