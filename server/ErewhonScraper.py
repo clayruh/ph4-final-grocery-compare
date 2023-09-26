@@ -35,10 +35,10 @@ class ErewhonScraper:
                 'img') if product.find('div', class_='img') else None
 
             price = price_tag.label.string if price_tag else None
-            label = header_tag.get_text() if header_tag else None
+            name = header_tag.get_text() if header_tag else None
             image = img_tag.get('src') if img_tag else None
 
-            new_product = Product(image, label, price)
+            new_product = Product(image, name, price)
             # self.products.append(new_product)
             print(new_product)
             db.session.add(new_product)
