@@ -1,6 +1,6 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
-import flask 
+import flask
 
 # serializerMixin, association_proxy, relationships, validations
 
@@ -40,12 +40,29 @@ class Cart(db.Model, SerializerMixin):
     serialize_rules = ('-consumer.carts', '-product.carts')
 
 # this is the main Bridge bewteen the Consumer and the Supermarket
+
+
 class Product(db.Model, SerializerMixin):
     # Items: Joiner for store and customers
     __tablename__ = 'products'
 
+    def __init__(self, image, label, price):
+        self.image = image
+        self.price = price
+        self.label = label
+
+    def __str__(self):
+        item_str = ''
+        item_str += f'image: {self.image}\n'
+        item_str += f'label: {self.label}\n'
+        item_str += f'price: {self.price}\n'
+        item_str += '------------------'
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
+    image = db.Column(db.String)
+    price = db.Column(db.Integer, nullable=False)
+    label = db.Column(db.String, nullable=False)
     consumer_id = db.Column(db.Integer, db.ForeignKey('consumers.id'))
     supermarket_id = db.Column(db.Integer, db.ForeignKey('supermarkets.id'))
 
@@ -64,9 +81,6 @@ class Product(db.Model, SerializerMixin):
     supermarket = association_proxy("prices", "supermarket")
     serialize_rules = ('-prices.product', )
 
-
-    def __init__(self, name):
-        self.name = name
 
 # this is the third bridge connecting Product and Supermarket
 class Price(db.Model, SerializerMixin):
