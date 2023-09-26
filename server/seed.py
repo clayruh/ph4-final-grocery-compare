@@ -2,12 +2,14 @@
 
 # Standard library imports
 from random import randint, choice as rc
-from models import Consumer, Cart, Product, Price, Supermarket
+from models import Consumer, CartItem, Product, Price, Supermarket
 
 import random
 
 # Remote library imports
 from faker import Faker
+
+faker = Faker
 
 # Local imports
 from app import app
@@ -30,7 +32,7 @@ if __name__ == '__main__':
         consumer_list = []
 
         for _ in range(15):
-            consumer = Consumer( name= faker.name(), address= faker.address())
+            consumer = Consumer(  name=faker.address(), address= faker.address())
 
             consumer_list.append(consumer)
             db.session.add(consumer_list)
