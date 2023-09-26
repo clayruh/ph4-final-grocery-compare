@@ -5,6 +5,10 @@ from Item import Item
 import ipdb
 from ..server.config import db
 
+import sys 
+sys.path.append('./server/config')
+import db
+
 
 class ErewhonScraper:
     def __init__(self):
@@ -17,8 +21,7 @@ class ErewhonScraper:
         return webdriver.Chrome(options=options)
 
     def get_page(self):
-        self.browser.get(
-            'https://shop.erewhonmarket.com/subcategory/55001/organic-fruits')
+        self.browser.get('https://shop.erewhonmarket.com/subcategory/55001/organic-fruits')
         time.sleep(2)
         html_text = self.browser.page_source
         return BeautifulSoup(html_text, 'lxml')
@@ -45,6 +48,7 @@ class ErewhonScraper:
             db.session.commit()
 
         self.print_items()
+
 
     def print_items(self):
         for item in self.items:

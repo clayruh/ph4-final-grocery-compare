@@ -3,6 +3,7 @@
 # Standard library imports
 from random import randint, choice as rc
 from models import Consumer, Cart, Product, Price, Supermarket
+
 import random
 
 # Remote library imports
@@ -10,21 +11,19 @@ from faker import Faker
 
 # Local imports
 from app import app
-from models import db
+from models import db, Consumer, CartItem, Product, Price, Supermarket
 
 if __name__ == '__main__':
     fake = Faker()
     with app.app_context():
-        print("Starting seed...")
-        # Seed code goes here!
-
-        print("Deleting old data..")
-
+        print("Clearing db...")
         Consumer.query.delete()
-        Cart.query.delete()
+        CartItem.query.delete()
         Product.query.delete()
         Price.query.delete()
         Supermarket.query.delete()
+
+        print("Starting seed...")
 
         print("Creating consumers...")
 
@@ -52,20 +51,20 @@ if __name__ == '__main__':
         product_list = []
 
         for _ in range(50):
-            product = Product(name= faker.product(), consumer_id = consumer_list, supermarket_id = supermarket_list)
-
+            product = Product(name= faker.word(), consumer_id = consumer_list, supermarket_id = supermarket_list)
             product_list.append(product)
             db.session.add(product_list)
             db.session.commit()
         
-        print("Creating cart...")
 
-        cart_list = []
+        print("Creating cart_items...")
+
+        cart_items_list = []
 
         for _ in range(10):
-            cart = Cart( consumer_id = consumer_list, product_id = product_list)
-            cart_list.append(cart)
-            db.session.add(cart_list)
+            cart_items = CartItem( consumer_id = consumer_list, product_id = product_list)
+            cart_items_list.append(cart_items)
+            db.session.add(cart_items_list)
             db.session.commit()
 
 
@@ -78,5 +77,4 @@ if __name__ == '__main__':
             price_list.append(price)
             db.session.add(price_list)
             db.session.commit()
-
 
