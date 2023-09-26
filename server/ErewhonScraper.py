@@ -1,13 +1,9 @@
 import time
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from Item import Item
+from models import Product, db
 import ipdb
-from ..server.config import db
-
-import sys 
-sys.path.append('./server/config')
-import db
+# from ..server.config import db
 
 
 class ErewhonScraper:
@@ -21,7 +17,8 @@ class ErewhonScraper:
         return webdriver.Chrome(options=options)
 
     def get_page(self):
-        self.browser.get('https://shop.erewhonmarket.com/subcategory/55001/organic-fruits')
+        self.browser.get(
+            'https://shop.erewhonmarket.com/subcategory/55001/organic-fruits')
         time.sleep(2)
         html_text = self.browser.page_source
         return BeautifulSoup(html_text, 'lxml')
@@ -41,14 +38,13 @@ class ErewhonScraper:
             label = header_tag.get_text() if header_tag else None
             image = img_tag.get('src') if img_tag else None
 
-            new_item = Item(image, label, price)
-            self.items.append(new_item)
-            # print(new_item)
-            db.session.add(new_item)
-            db.session.commit()
+            new_product = Product(image, label, price)
+            # self.products.append(new_product)
+            print(new_product)
+            db.session.add(new_product)
 
+        db.session.commit()
         self.print_items()
-
 
     def print_items(self):
         for item in self.items:

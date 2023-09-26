@@ -19,7 +19,6 @@ if __name__ == '__main__':
 
 @app.post('/consumers')
 def create_consumers():
-    
     data = request.json
 
     new_consumer= Consumer(name = data['name'], address= data['address'])
@@ -40,6 +39,7 @@ def update_consumer(id):
     consumer = Consumer.query.filter(Consumer.id == id).first()
     return consumer.to_dict(), 202
         
+
 
 # =====================================Cart===============================================
 
@@ -92,19 +92,19 @@ def get_product_by_id(id):
     except: 
         return {"error": "product not found"}, 404
 
+
 # =========================================Price===========================================
 
 @app.get('/prices')
 def get_prices():
-    
     prices = Price.query.all()
     return [ price.to_dict() for price in prices]
+
 
 # =========================================Supermarket======================================
 
 @app.get('/supermarkets')
 def get_supermarkets():
-    
     supermarkets = Supermarket.query.all()
     return [ supermarket.to_dict() for supermarket in supermarkets]
 
@@ -116,5 +116,6 @@ def get_supermarket_by_id(id):
         return supermarket.to_dict(), 200
     except: 
         return {"error": "supermarket not found"}, 404
+
 
 

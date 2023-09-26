@@ -2,7 +2,8 @@
 
 # Standard library imports
 from random import randint, choice as rc
-from models import Consumer, CartItem, Product, Price, Supermarket
+from models import Consumer, Cart, Product, Price, Supermarket
+
 import random
 
 # Remote library imports
@@ -23,6 +24,7 @@ if __name__ == '__main__':
         Supermarket.query.delete()
 
         print("Starting seed...")
+
         print("Creating consumers...")
 
         consumer_list = []
@@ -50,11 +52,11 @@ if __name__ == '__main__':
 
         for _ in range(50):
             product = Product(name= faker.word(), consumer_id = consumer_list, supermarket_id = supermarket_list)
-
             product_list.append(product)
             db.session.add(product_list)
             db.session.commit()
         
+
         print("Creating cart_items...")
 
         cart_items_list = []
@@ -75,3 +77,4 @@ if __name__ == '__main__':
             price_list.append(price)
             db.session.add(price_list)
             db.session.commit()
+

@@ -1,6 +1,6 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
-import flask 
+import flask
 
 from config import db
 
@@ -36,13 +36,31 @@ class CartItem(db.Model, SerializerMixin):
     serialize_rules = ('-consumer.cart_items', '-product.cart_items')
 
 # this is the main Bridge bewteen the Consumer and the Supermarket
+
+
 class Product(db.Model, SerializerMixin):
     # Items: Joiner for store and customers
     __tablename__ = 'products'
 
-    id = db.Column(db.Integer, primary_key=True, unique=True)
+
+    def __init__(self, image, label, price):
+        self.image = image
+        self.price = price
+        self.label = label
+
+    def __str__(self):
+        item_str = ''
+        item_str += f'image: {self.image}\n'
+        item_str += f'label: {self.label}\n'
+        item_str += f'price: {self.price}\n'
+        item_str += '------------------'
+
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     image = db.Column(db.String)
+    price = db.Column(db.Integer, nullable=False)
+    label = db.Column(db.String, nullable=False)
+
     consumer_id = db.Column(db.Integer, db.ForeignKey('consumers.id'))
     supermarket_id = db.Column(db.Integer, db.ForeignKey('supermarkets.id'))
 
