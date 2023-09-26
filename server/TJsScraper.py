@@ -1,7 +1,7 @@
 import time
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from models import Product, Price
+from models import db, Product, Price
 import ipdb
 
 class TJsScraper:
@@ -39,6 +39,8 @@ class TJsScraper:
             new_price = Price(price, supermarket_id = 2)
             self.items.append(new_item)
             self.prices.append(new_price)
+            db.session.add_all(self.items)
+            db.session.add_all(self.prices)
             # self.print_items()
             # ipdb.set_trace()
 
