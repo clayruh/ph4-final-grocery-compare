@@ -4,3 +4,4 @@ export async function getProducts() {
 
     return { allProducts }
 }
+

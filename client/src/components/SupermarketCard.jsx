@@ -1,10 +1,13 @@
-function SupermarketCard() {
+import React from "react";
 
+function SupermarketCard({ supermarketObj }) {
+    
     return (
         <div>
             <h1>Supermarket Card</h1>
+            <div className="supermarket-name">{supermarketObj.name}</div>
+            <p className="supermarket-address">{supermarketObj.address}</p>
         </div>
     )
 }
 
-export default SupermarketCard;

@@ -1,10 +1,8 @@
-function Cart() {
-
+export default function CartCard({}) {
+    
     return (
-        <div>
-            <h1>CART</h1>
+        <div className='cart-card'>
         </div>
     )
-}
 
-export default Cart;
+    }
