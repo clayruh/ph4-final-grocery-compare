@@ -1,0 +1,174 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "strawberry",
+            "prices": [
+                {
+                    "id": 1,
+                    "price": 12.99,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Trader Joes",
+                        "address": "233 Spring St, New York, NY 10013"
+                    }                   
+                },
+                {
+                    "id": 2,
+                    "price": 13.99,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Erewhon",
+                        "address": "188th St &, Utopia Pkwy, Flushing, NY 11358"
+                    }                    
+                }               
+            ]
+        },
+        {
+            "id": 2,
+            "name": "banana",
+            "prices": [
+                {
+                    "id": 1,
+                    "price": 12.00,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Trader Joes",
+                        "address": "233 Spring St, New York, NY 10013"
+                    }                   
+                },
+                {
+                    "id": 2,
+                    "price": 15.99,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Erewhon",
+                        "address": "188th St &, Utopia Pkwy, Flushing, NY 11358"
+                    }                    
+                }               
+            ]
+                    },
+        {
+            "id": 3,
+            "name": "milk",
+            "prices": [
+                {
+                    "id": 1,
+                    "price": 10.00,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Trader Joes",
+                        "address": "233 Spring St, New York, NY 10013"
+                    }                   
+                },
+                {
+                    "id": 2,
+                    "price": 3.99,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Erewhon",
+                        "address": "188th St &, Utopia Pkwy, Flushing, NY 11358"
+                    }                    
+                }               
+            ]
+        },
+        {
+            "id": 4,
+            "name": "cheese",
+            "prices": [
+                {
+                    "id": 1,
+                    "price": 2.99,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Trader Joes",
+                        "address": "233 Spring St, New York, NY 10013"
+                    }                   
+                },
+                {
+                    "id": 2,
+                    "price": 3.99,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Erewhon",
+                        "address": "188th St &, Utopia Pkwy, Flushing, NY 11358"
+                    }                    
+                }               
+            ]
+        },
+        {
+            "id": 5,
+            "name": "bread",
+            "prices": [
+                {
+                    "id": 1,
+                    "price": 2.99,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Trader Joes",
+                        "address": "233 Spring St, New York, NY 10013"
+                    }                   
+                },
+                {
+                    "id": 2,
+                    "price": 3.99,
+                    "supermarket": {
+                        "id": 1,
+                        "name": "Erewhon",
+                        "address": "188th St &, Utopia Pkwy, Flushing, NY 11358"
+                    }                    
+                }               
+            ]
+        }
+
+    ],
+    "supermarkets": [
+        {
+            "id": 1,
+            "name": "Trader Joes",
+            "address": "233 Spring St, New York, NY 10013"
+        },
+        {
+            "id": 2,
+            "name": "Erewhon",
+            "address": "188th St &, Utopia Pkwy, Flushing, NY 11358"
+        }
+    ],
+    "consumers": [
+        {
+            "id": 1,
+            "name": "Kim Namjoon",
+            "address": "134340 Seoul"
+        },
+        {
+            "id": 2,
+            "name": "Kim Seokjin",
+            "address": "3929 Tavern"
+        },
+        {
+            "id": 3,
+            "name": "Min Yoongi",
+            "address": "7746 Heath"
+        },
+        {
+            "id": 4,
+            "name": "Jung Hoseok",
+            "address": "8210 Waverly"
+        },
+        {
+            "id": 5,
+            "name": "Park Jimin",
+            "address": "0923 Delancey"
+        },
+        {
+            "id": 6,
+            "name": "Kim Taehyung",
+            "address": "3096 Miramar"
+        },
+        {
+            "id": 7,
+            "name": "Jeon Jungkook",
+            "address": "12327 Bronson"
+        }
+    ]
+}
