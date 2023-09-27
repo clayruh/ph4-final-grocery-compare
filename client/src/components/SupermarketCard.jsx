@@ -1,6 +1,6 @@
 import React from "react";
 
-function SupermarketCard({ supermarketObj }) {
+export default function SupermarketCard({ supermarketObj }) {
     
     return (
         <div>
