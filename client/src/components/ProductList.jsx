@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import ProductCard from "./ProductCard.jsx"
 import Search from './Search';
 
-function Product() {
-
+function ProductList() {
 
 //  we want to filter and map here
 
@@ -15,7 +15,7 @@ function Product() {
       <Search />
 
       <div className="product-card-container">
-        {/* this is where you place {filteredMappedCards} */}
+        <ProductCard />
       </div>
 
       </div>
@@ -24,4 +24,4 @@ function Product() {
   );
 }
 
-export default Menu;
+export default ProductList;
