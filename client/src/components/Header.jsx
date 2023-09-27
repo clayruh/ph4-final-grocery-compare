@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 
-function Header(props) {
+export default function Header(props) {
+
 
     return (
-        <header classname ='main-header'>
+        <header className ='main-header'>
             
-            <nav classname='nav-bar'>
+            <nav className='nav-bar'>
 
                 <Link to='/'>Home</Link>
                 <Link to="/about">About Us</Link>
@@ -19,5 +20,3 @@ function Header(props) {
 
     )
 }
-
-export default Header

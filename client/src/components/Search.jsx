@@ -1,4 +1,5 @@
-function Search() {
+export default function Search() {
+    
     return (
         <div>
             <h1>Search</h1>
@@ -7,5 +8,3 @@ function Search() {
         </div>
     )
 }
-
-export default Search;
