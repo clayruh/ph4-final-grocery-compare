@@ -19,3 +19,5 @@ export default function Search({setFilteredProducts}) {
         </div>
     )
 }
+
+
