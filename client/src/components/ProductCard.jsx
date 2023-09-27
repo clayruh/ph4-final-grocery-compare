@@ -7,7 +7,7 @@ export default function ProductCard({ image, name }) {
     return (
         <div className='product-card'>
             <img src={image}></img>
-            <h1>{name}</h1>
+            <h3>{name}</h3>
             <button onClick={() => handleAddToCart()}>add to cart</button>
         </div>
     )
