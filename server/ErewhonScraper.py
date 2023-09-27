@@ -5,7 +5,6 @@ from models import Product, db
 import ipdb
 # from ..server.config import db
 
-
 class ErewhonScraper:
     def __init__(self):
         self.items = []
