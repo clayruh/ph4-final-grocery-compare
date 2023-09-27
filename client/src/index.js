@@ -5,13 +5,13 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // COMPONENTS //
-import App from './App';
+import App from './components/App';
 import Home from './components/Home';
 import About from './components/About';
+import ProductList from './components/ProductList'
 
 // LOADER 
-
-// import { } from '/loaders';
+import { getProducts } from './loaders'
 
 const router = createBrowserRouter([
 
@@ -26,6 +26,11 @@ const router = createBrowserRouter([
       {
         path:"/about",
         element: <About/>
+      },
+      {
+        path:"/products",
+        element: <ProductList/>,
+        loader: getProducts
       }
     ]
   }
