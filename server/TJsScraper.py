@@ -10,6 +10,8 @@ class TJsScraper:
         self.items = []
         self.prices = []
         self.browser = self.init_browser()
+        # init the supermarket here (self.supermarket =)
+        # self.supermarket_id = 2
 
     def init_browser(self):
         options = webdriver.ChromeOptions()
@@ -43,6 +45,8 @@ class TJsScraper:
 
             new_item = Product(name, image)
             new_price = Price(price, supermarket_id=2)
+            # also for supermarket:
+            # find or create by, find a supermarket by these parameters, and then create a new one based on this (if else statement)
             self.items.append(new_item)
             self.prices.append(new_price)
             # self.print_items()

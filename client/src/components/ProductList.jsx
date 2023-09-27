@@ -3,9 +3,9 @@ import { useLoaderData } from "react-router-dom";
 import ProductCard from "./ProductCard.jsx"
 import Search from './Search';
 
-function ProductList() {
+export default function ProductListList() {
 
-//  we want to filter and map here
+// filter and map here
 
   return (
     <div className="product-page">
@@ -23,5 +23,3 @@ function ProductList() {
     </div>
   );
 }
-
-export default ProductList;
