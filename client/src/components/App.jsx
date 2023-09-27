@@ -7,11 +7,8 @@ export default function App() {
 
     return (
         <div className='App'>
-
             <Header/>
-
             <Outlet/>
-
         </div>
     )
 }
