@@ -40,7 +40,7 @@ class TJsScraper:
                 'span', class_='ProductPrice_productPrice__price__3-50j')
 
             name = item_tag.a.string if img_tag else None
-            image = img_tag.get('src') if item_tag else None
+            image = 'https://www.traderjoes.com' + img_tag.get('src') if item_tag else None
             price = price_tag.string if price_tag else None
 
             new_item = Product(name, image)

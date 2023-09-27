@@ -3,7 +3,7 @@ from flask import request, jsonify
 from flask_restful import Resource
 
 # Local imports
-from config import app, db, api
+from config import app, db
 from models import Product, Consumer, CartItem, Price, Supermarket
 
 @app.route('/')
