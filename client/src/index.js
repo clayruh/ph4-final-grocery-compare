@@ -5,12 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // COMPONENTS //
-import App from './App';
+import App from './components/App';
 import Home from './components/Home';
+import ProductList from './components/ProductList'
 import About from './components/About';
 import SupermarketList from './components/SupermarketList';
 
 // LOADER 
+import { getProducts } from './loaders'
 
 import { getSupermarketLoader } from './loaders';
 
@@ -23,6 +25,11 @@ const router = createBrowserRouter([
       {
         index: true, // this indicates default route
         element: <Home/>
+      },
+      {
+        path:"/products",
+        element: <ProductList/>,
+        loader: getProducts
       },
       {
         path:"/about",

@@ -3,23 +3,29 @@ import { useLoaderData } from "react-router-dom";
 import ProductCard from "./ProductCard.jsx"
 import Search from './Search';
 
-export default function ProductListList() {
+export default function ProductList() {
+  const { allProducts } = useLoaderData()
 
-// filter and map here
+  const [filteredProducts, setFilteredProducts] = useState("")
+
+  const searchProducts = allProducts.filter(product => { product.name.toLowercase().includes(filteredProducts.toLowerCase())})
+  
+  const mapProductCards = searchProducts.map(productObj => (
+    <ProductCard 
+      key={productObj.id} 
+      image={productObj.image}
+      name={productObj.name}
+    />
+  ))
 
   return (
     <div className="product-page">
-
+      <div className="search">
+        <Search setFilteredProducts={setFilteredProducts} />
+      </div>
       <div className="products-container">
-
-      <Search />
-
-      <div className="product-card-container">
-        <ProductCard />
+        {mapProductCards}
       </div>
-
-      </div>
-      
     </div>
   );
 }
