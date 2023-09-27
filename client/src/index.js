@@ -8,10 +8,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Home from './components/Home';
 import About from './components/About';
+import SupermarketList from './components/SupermarketList';
 
 // LOADER 
 
-// import { } from '/loaders';
+import { getSupermarketLoader } from './loaders';
 
 const router = createBrowserRouter([
 
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
       {
         path:"/about",
         element: <About/>
+      },
+      {
+        path:"/supermarket",
+        element: <SupermarketList/>,
+        loader: getSupermarketLoader
       }
     ]
   }
