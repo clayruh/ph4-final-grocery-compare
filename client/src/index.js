@@ -9,9 +9,12 @@ import App from './components/App';
 import Home from './components/Home';
 import ProductList from './components/ProductList'
 import About from './components/About';
+import SupermarketList from './components/SupermarketList';
 
 // LOADER 
 import { getProducts } from './loaders'
+
+import { getSupermarketLoader } from './loaders';
 
 const router = createBrowserRouter([
 
@@ -31,6 +34,11 @@ const router = createBrowserRouter([
       {
         path:"/about",
         element: <About/>
+      },
+      {
+        path:"/supermarket",
+        element: <SupermarketList/>,
+        loader: getSupermarketLoader
       }
     ]
   }
