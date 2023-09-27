@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Search from './Search';
 
-function Product() {
+export default function ProductList() {
 
 
-//  we want to filter and map here
+// filter and map here
 
   return (
     <div className="product-page">
@@ -23,5 +23,3 @@ function Product() {
     </div>
   );
 }
-
-export default Menu;

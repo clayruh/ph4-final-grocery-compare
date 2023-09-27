@@ -1,10 +1,10 @@
-function Home() {
+export default function Home() {
+
+
     return (
-        <div classname='homepage'>
+        <div className='homepage'>
             <h1>HOMEPAGE</h1>
 
         </div>
     )
 }
-
-export default Home;

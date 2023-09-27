@@ -1,10 +1,11 @@
-function About() {
+export default function About() {
+
+  
     return (
       <div className="about-page">
-        <h1>About</h1>
+        <h1>About Us</h1>
       </div>
     );
   }
   
-  export default About;
   

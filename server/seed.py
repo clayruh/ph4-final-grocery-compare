@@ -58,7 +58,7 @@ if __name__ == '__main__':
                 consumer_id=random.randint(1, 15),
                 image=faker.word(),
                 price=random.randint(1, 20),
-                supermarket_id=faker.word())
+                supermarket_id=random.randint(1,5))
             product_list.append(product)
             db.session.add_all(product_list)
             db.session.commit()
@@ -84,3 +84,5 @@ if __name__ == '__main__':
             price_list.append(price)
             db.session.add_all(price_list)
             db.session.commit()
+
+        print("Seeding complete!")
