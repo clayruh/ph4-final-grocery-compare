@@ -4,8 +4,7 @@ import React from 'react'
 const CartItem = ({cartItem}) => {
 
   function handleRemove(){
-
-    
+    // use the 'delete' route from the backend
     console.log('removed item')
   }
 

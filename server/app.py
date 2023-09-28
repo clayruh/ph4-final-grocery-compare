@@ -44,24 +44,22 @@ def get_cart_by_id(id):
     except:
         return {"error": "cart not found"}, 404
 
-# doesn't quite work yet!!
 @app.post('/cart_items')
 def create_cart():
     data = request.json
     new_cart = CartItem(
-        consumer_id=data['consumer_id'], product=data['product_id'])
+        consumer_id=data['consumer_id'], product_id=data['product_id'])
     db.session.add(new_cart)
     db.session.commit()
     return jsonify(new_cart.to_dict()), 201
 
-# also doesn't quite work !! deletes from cart_items but has an issue with CartItem attribute "product"
 @app.delete('/cart_items/<int:id>')
 def delete_cart(id):
     # try:
         cart = CartItem.query.filter(CartItem.id == id).first()
         db.session.delete(cart)
         db.session.commit()
-        return jsonify(cart.to_dict()), 204
+        return {}, 204
     # except:
     #     return jsonify({"error": "cart not found"}), 404
 
