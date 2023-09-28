@@ -8,10 +8,10 @@ function Main() {
 
     return (
         <div>
-            <Outlet/>
-            {/* <ProductList/>
-            <CartList/>
-            <SupermarketList/> */}
+
+             <Outlet/>
+         
+
         </div>
     )
 }

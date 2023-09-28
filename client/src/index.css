@@ -53,10 +53,98 @@ button {
   transition: .5s;
 }
 
-.product-card img { 
-  width: 15%;
-  aspect-ratio : 3/2;
-  object-fit: contain;
-  mix-blend-mode: color-burn;
+
+/* Container for Product Cards */
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  margin-left: -10px; /* Adjust as needed to shift it slightly to the left */
 }
 
+/* Product Card Styles */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px; /* Add margin to space out cards */
+  width: calc(25% - 20px); /* Four cards in a row, adjust as needed */
+  padding-top: 25%; /* Set the aspect ratio to create a square card */
+  position: relative;
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden; /* Hide any image content that exceeds the card dimensions */
+
+
+  &:hover {
+    transform: scale(1.05);
+    
+  }
+
+  
+  .product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: unset;
+    max-height: unset;
+  }
+
+  .card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  img.product-image {
+    width: 100%; /* Force the image width to 100% of the card width */
+ /* Force the image height to 100% of the card height */
+    object-fit: cover /* Maintain aspect ratio and cover the card */
+  }
+
+
+  button.add-to-cart {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 1.5em;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+
+/* Styling for the search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 10px;
+  width: 500px;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  padding: 5px 10px; /* Added padding for the icon */
+  font-size: 14px;
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Adjust position of the icon */
+}
