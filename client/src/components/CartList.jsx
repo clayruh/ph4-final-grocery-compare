@@ -15,10 +15,13 @@ function CartList(){
   
     return (
       <div className='shopping-list'>
-        <h1> THIS IS THE  CART LIST COMPONENT BEING PULLED IN </h1>
+        <h1 className = 'temporary'> THIS IS THE  CART LIST COMPONENT BEING PULLED IN </h1>
+        <h1>Shopping List</h1>
         <button> SEARCH STORES</button>
-        <h3>Shopping List</h3>
         {mappedCartItems}
+
+
+        <h2 className = 'temporary'> This box will populate with the clicked items</h2>
       </div>
   )
 }
