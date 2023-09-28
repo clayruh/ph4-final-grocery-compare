@@ -1,13 +1,43 @@
+import { useParams } from "react-router-dom"
+import { useState } from "react"
+import CartList from "./CartList"
+
+
 export default function ProductCard({ productObj }) {
 
+
+    const [addItems, setAddItems] = useState(false)
+    
+    
     function handleAddToCart(){
-        console.log('added to cart')
-        // when clicked, item is added as a CartCard to CartList
+
+        
+        console.log("I can be clicked but not go anywhere")
+
+        // this is the post for the addign items to the cart
+
+        const OPTIONS = { 
+            method : "POST",
+            headers : { 
+                "Accept" : "application/json",
+                "Content-type" : "application/json"
+            },
+            body : JSON.stringify({ 
+                
+                consumer_id: '',
+                product_id : ''
+                
+            })
+        } 
+        fetch('http://localhost:3000/cart_items', OPTIONS)
+        .then(response => response.json())
+        .then(newCartItem => setAddItems(newCartItem)) 
     }
 
     
     return (
         <div className='product-card'>
+
           <div className='card-content'>
             <img
               src={productObj.image}
