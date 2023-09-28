@@ -9,6 +9,9 @@ function Main() {
     return (
         <div>
             <Outlet/>
+            {/* <ProductList/>
+            <CartList/>
+            <SupermarketList/> */}
         </div>
     )
 }
