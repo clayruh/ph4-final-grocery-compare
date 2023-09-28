@@ -1,8 +1,15 @@
+import ProductList from "./ProductList";
+import CartList from "./CartList";
+import SupermarketList from "./SupermarketList";
+
+
 function Main() {
 
     return (
         <div>
-            <h1>Main</h1>
+            <ProductList/>
+            <CartList/>
+            <SupermarketList/>
         </div>
     )
 }

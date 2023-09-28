@@ -9,7 +9,6 @@ import App from './components/App';
 import Home from './components/Home';
 import ProductList from './components/ProductList'
 import SupermarketList from './components/SupermarketList';
-import About from './components/About';
 import CartList from './components/CartList'
 
 // LOADER 
@@ -37,12 +36,12 @@ const router = createBrowserRouter([
       {
         path:"/supermarkets",
         element: <SupermarketList/>,
-        loader: getSupermarkets
+        loader: getSupermarketLoader
       },
       {
         path:"/shopping-cart",
         element: <CartList/>,
-        loader: getCartItems
+        loader: getCarts
       }
     ]
   }
