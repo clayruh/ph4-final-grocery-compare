@@ -33,7 +33,6 @@ button {
   text-align: center;
 }
 
-
 .shopping-list {
   padding: 6rem;
 }
@@ -81,12 +80,11 @@ button {
   overflow: hidden; /* Hide any image content that exceeds the card dimensions */
 
 
-  &:hover {
+  /* &:hover {
     transform: scale(1.05);
     
-  }
+  } */
 
-  
   .product-card img {
     width: 100%;
     height: 100%;

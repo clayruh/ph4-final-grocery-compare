@@ -31,7 +31,7 @@ export default function ProductCard({ productObj, addCartItems }) {
             <h3>{productObj.name}</h3>
           </div>
           <button onClick={() => handleAddToCart()} className="add-to-cart">
-            <span>+</span>
+            <span>Add to Cart</span>
           </button>
         </div>
       );

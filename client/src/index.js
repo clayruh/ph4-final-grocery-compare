@@ -13,7 +13,7 @@ import About from './components/About'
 import CartList from './components/CartList'
 
 // LOADER 
-import { getProducts, getSupermarketLoader, getCarts, getCartItems } from './loaders'
+import { getProducts, getSupermarketLoader, getCartItems } from './loaders'
 
 const router = createBrowserRouter([
 

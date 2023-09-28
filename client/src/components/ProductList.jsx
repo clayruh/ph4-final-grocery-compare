@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router-dom";
 import ProductCard from "./ProductCard.jsx"
 import CartList from './CartList'
 import Search from './Search';
-import CartList from "./CartList.jsx";
 
 export default function ProductList() {
   // LOADER //
@@ -37,7 +36,6 @@ export default function ProductList() {
         <div className="search">
           <Search setFilteredProducts={setFilteredProducts} />
         </div>
-        <CartList/>
         <div className="products-container">
           {mapProductCards}
         </div>
