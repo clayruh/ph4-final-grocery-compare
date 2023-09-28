@@ -4,9 +4,9 @@ import CartCard from "./CartCard.jsx"
 
 
 function CartList(){
-    const { allCartItems } = useLoaderData()
+    const { allCartItems } = useLoaderData() || {}
 
-    const mappedCartItems = allCartItems.map(cartItem => (
+    const mappedCartItems = allCartItems?.map(cartItem => (
       <CartCard 
         key={cartItem.id} cartItem={cartItem}
       />

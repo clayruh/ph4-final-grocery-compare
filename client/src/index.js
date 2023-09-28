@@ -9,10 +9,11 @@ import App from './components/App';
 import Home from './components/Home';
 import ProductList from './components/ProductList'
 import SupermarketList from './components/SupermarketList';
+import About from './components/About'
 import CartList from './components/CartList'
 
 // LOADER 
-import { getProducts, getSupermarkets, getCartItems } from './loaders'
+import { getProducts, getSupermarketLoader, getCarts } from './loaders'
 
 const router = createBrowserRouter([
 
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
         loader: getSupermarketLoader
       },
       {
-        path:"/cart_item",
+        path:"/cart_items:id",
         element: <CartList/>,
         loader: getCarts
       }

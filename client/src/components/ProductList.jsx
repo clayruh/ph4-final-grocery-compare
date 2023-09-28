@@ -4,13 +4,13 @@ import ProductCard from "./ProductCard.jsx"
 import Search from './Search';
 
 export default function ProductList() {
-  const { allProducts } = useLoaderData()
-
+  const { allProducts } = useLoaderData()  || {}
+  console.log(allProducts)
   const [filteredProducts, setFilteredProducts] = useState("")
 
-  const searchProducts = allProducts.filter(product => { product.name.toLowerCase().includes(filteredProducts.toLowerCase())})
+  const searchProducts = allProducts?.filter(product => { product.name.toLowerCase().includes(filteredProducts.toLowerCase())})
   
-  const mapProductCards = searchProducts.map(productObj => (
+  const mapProductCards = searchProducts?.map(productObj => (
     <ProductCard 
       key={productObj.id} productObj={productObj}
     />
