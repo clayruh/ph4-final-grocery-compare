@@ -9,7 +9,9 @@ export default function Header() {
             <nav className='nav-bar'>
                 <Link className="link" to='/'>Home</Link>
                 <Link className="link" to="/products">Products</Link>
+                <Link className="link" to="/supermarkets">Supermarkets</Link>
                 <Link className="link" to="/about">About</Link>
+                <Link className="link" to="/carts">Carts</Link>
             </nav>
 
         </header>

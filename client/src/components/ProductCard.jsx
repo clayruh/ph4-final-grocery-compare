@@ -1,4 +1,4 @@
-export default function ProductCard({ image, name }) {
+export default function ProductCard({ productObj }) {
 
     function handleAddToCart(){
         console.log('added to cart')
@@ -6,8 +6,8 @@ export default function ProductCard({ image, name }) {
     
     return (
         <div className='product-card'>
-            <img src={image}></img>
-            <h3>{name}</h3>
+            <img src={productObj.image}></img>
+            <h3>{productObj.name}</h3>
             <button onClick={() => handleAddToCart()}>add to cart</button>
         </div>
     )

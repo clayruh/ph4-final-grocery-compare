@@ -12,20 +12,20 @@ export default function ProductList() {
   
   const mapProductCards = searchProducts.map(productObj => (
     <ProductCard 
-      key={productObj.id} 
-      image={productObj.image}
-      name={productObj.name}
+      key={productObj.id} productObj={productObj}
     />
   ))
 
   return (
-    <div className="product-page">
-      <div className="search">
-        <Search setFilteredProducts={setFilteredProducts} />
+    <>
+      <div className="product-page">
+        <div className="search">
+          <Search setFilteredProducts={setFilteredProducts} />
+        </div>
+        <div className="products-container">
+          {mapProductCards}
+        </div>
       </div>
-      <div className="products-container">
-        {mapProductCards}
-      </div>
-    </div>
+    </>
   );
 }

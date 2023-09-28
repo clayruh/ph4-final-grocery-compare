@@ -8,7 +8,7 @@ from models import Product, Consumer, CartItem, Price, Supermarket
 
 @app.route('/')
 def index():
-    return '<h1>Project Server</h1>'
+    return '<h1>Grocery Compare Server</h1>'
 
 # ====================================Consumers======================================
 
@@ -30,6 +30,11 @@ def update_consumer(id):
     return jsonify(consumer.to_dict(rules=('-cart_items.consumer_id', '-cart_items.product.prices', '-cart_items.product.prices.id', '-cart_items.product.prices.product_id', '-cart_items.product.prices.supermarket_id'))), 202
 
 # ===========================Cart==================================
+
+@app.get('/cart_items')
+def get_carts():
+    carts=CartItem.query.all()
+    return jsonify([cart.to_dict() for cart in carts]), 200
 
 @app.get('/cart_items/<int:id>')
 def get_cart_by_id(id):

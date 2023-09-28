@@ -8,14 +8,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './components/App';
 import Home from './components/Home';
 import ProductList from './components/ProductList'
-import About from './components/About';
 import SupermarketList from './components/SupermarketList';
 import CartList from './components/CartList'
 
 // LOADER 
-import { getProducts } from './loaders'
-import  {getCarts } from './loaders'
-import { getSupermarketLoader } from './loaders';
+import { getProducts, getSupermarkets, getCartItems } from './loaders'
 
 const router = createBrowserRouter([
 
@@ -37,7 +34,7 @@ const router = createBrowserRouter([
         element: <About/>
       },
       {
-        path:"/supermarket",
+        path:"/supermarkets",
         element: <SupermarketList/>,
         loader: getSupermarketLoader
       },

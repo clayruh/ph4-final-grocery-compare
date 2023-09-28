@@ -14,8 +14,6 @@ export default function Search({setFilteredProducts}) {
                 onChange={handleSearch}
             />
             
-
-            
         </div>
     )
 }
