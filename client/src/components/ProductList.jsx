@@ -7,12 +7,13 @@ export default function ProductList() {
   const { allProducts } = useLoaderData()  || {}
   console.log(allProducts)
   const [filteredProducts, setFilteredProducts] = useState("")
+  console.log(filteredProducts)
 
-  const searchProducts = allProducts?.filter(product => { product.name.toLowerCase().includes(filteredProducts.toLowerCase())})
+  const searchProducts = allProducts?.filter(product => { 
+    return product.name.toLowerCase().includes(filteredProducts.toLowerCase())})
   
   const mapProductCards = searchProducts?.map(productObj => (
-    <ProductCard 
-      key={productObj.id} productObj={productObj}
+    <ProductCard key={productObj.id} productObj={productObj}
     />
   ))
 
