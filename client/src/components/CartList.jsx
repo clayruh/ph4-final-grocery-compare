@@ -1,5 +1,5 @@
 import React from 'react'
-import {useLoaderData, useParams} from 'react-router-dom'
+import {useLoaderData} from 'react-router-dom'
 import CartItem from "./CartItem.jsx"
 
 function CartList({ cart }){
