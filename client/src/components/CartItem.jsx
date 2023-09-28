@@ -8,11 +8,6 @@ const CartItem = ({cartItem}) => {
     console.log('removed item')
   }
 
-  function handleSearchStore(){ 
-    
-    console.log("lets checkout the stores!!!!!!!")
-  }
-
   
   return (
     <>
@@ -25,7 +20,6 @@ const CartItem = ({cartItem}) => {
       
           <li>{cartItem.product.name}</li>
           <button onClick={handleRemove}>Remove item</button>
-          <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button>
         </ul>
 
     </>
