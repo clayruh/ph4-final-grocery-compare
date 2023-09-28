@@ -13,11 +13,6 @@ function CartList(){
       />
     ))
 
-    
-    for(let i = 0; i < mappedCartItems; i++)
-    
-    
-  
     return (
       <div className='shopping-list'>
         <h3>Shopping List</h3>
