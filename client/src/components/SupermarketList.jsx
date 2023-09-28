@@ -5,7 +5,6 @@ import SupermarketCard from "./SupermarketCard";
 function SupermarketList() {
 
   const { allSupermarkets } = useLoaderData() || {}
-  console.log(allSupermarkets)
 
   const mappedSupermarketCards = allSupermarkets?.map((supermarketObj) => (
     <SupermarketCard key={supermarketObj?.id} supermarketObj={supermarketObj} />
