@@ -9,12 +9,31 @@ export default function ProductCard({ productObj }) {
     const [addItems, setAddItems] = useState(false)
     
     
-    function handleAddToCart(e){
-
-        e.preventDefault()
+    function handleAddToCart(){
 
         
+        console.log("I can be clicked but not go anywhere")
+
+        // this is the post for the addign items to the cart
+
+        const OPTIONS = { 
+            method : "POST",
+            headers : { 
+                "Accept" : "application/json",
+                "Content-type" : "application/json"
+            },
+            body : JSON.stringify({ 
+                
+                consumer_id: '',
+                product_id : ''
+                
+            })
+        } 
+        fetch('http://localhost:3000/cart_items', OPTIONS)
+        .then(response => response.json())
+        .then(newCartItem => setAddItems(newCartItem)) 
     }
+
     
     return (
         <div className='product-card'>
@@ -32,20 +51,3 @@ export default function ProductCard({ productObj }) {
     )
 }
 
-// const [didAnswerIsTrue, setDidAnswerIsTrue] = useState(false)
-//     // answer: "19"
-
-    
-
-//     function handlePossibleAnswer(e) { 
-//         // "19" = "19"
-//         if(triviaObj.correctAnswer === e.target.textContent){ 
-//             // answer: true
-//             setDidAnswerIsTrue(true)    
-//             console.log("I am correct!")
-//         } else {
-//             setDidAnswerIsTrue(false)
-//             console.log("Am I correct?")
-//         }
-//     }
-    
