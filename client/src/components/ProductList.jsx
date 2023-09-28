@@ -13,8 +13,7 @@ export default function ProductList() {
     return product.name.toLowerCase().includes(filteredProducts.toLowerCase())})
   
   const mapProductCards = searchProducts?.map(productObj => (
-    <ProductCard 
-      key={productObj.id} productObj={productObj}
+    <ProductCard key={productObj.id} productObj={productObj}
     />
   ))
 
