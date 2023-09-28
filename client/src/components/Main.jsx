@@ -7,6 +7,7 @@ function Main() {
 
     return (
         <div>
+            
             <ProductList/>
             <CartList/>
             <SupermarketList/>

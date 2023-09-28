@@ -1,7 +1,21 @@
+import { useParams } from "react-router-dom"
+import { useState } from "react"
+
+
 export default function ProductCard({ productObj }) {
 
-    function handleAddToCart(){
+
+    const [addItems, setAddItems] = useState(false)
+    
+    
+    function handleAddToCart(e){
+
+        if ( productObj.name == e.target.textContent){
+            return 
+        }
+
         console.log('added to cart')
+
         // when clicked, item is added as a CartCard to CartList
     }
     
@@ -18,3 +32,21 @@ export default function ProductCard({ productObj }) {
         </div>
     )
 }
+
+// const [didAnswerIsTrue, setDidAnswerIsTrue] = useState(false)
+//     // answer: "19"
+
+    
+
+//     function handlePossibleAnswer(e) { 
+//         // "19" = "19"
+//         if(triviaObj.correctAnswer === e.target.textContent){ 
+//             // answer: true
+//             setDidAnswerIsTrue(true)    
+//             console.log("I am correct!")
+//         } else {
+//             setDidAnswerIsTrue(false)
+//             console.log("Am I correct?")
+//         }
+//     }
+    

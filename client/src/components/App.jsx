@@ -7,7 +7,7 @@ export default function App() {
     
     return (
         <div className='App'>
-            <Main/>
+            {/* <Main/> */}
             <Header/>
             <Outlet/>
         </div>
