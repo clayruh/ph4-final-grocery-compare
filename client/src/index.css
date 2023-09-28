@@ -59,8 +59,8 @@ button {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 20px;
-  margin-left: -10px; /* Adjust as needed to shift it slightly to the left */
+  padding: 8px;
+  margin-left: -4px;
 }
 
 /* Product Card Styles */
@@ -68,22 +68,22 @@ button {
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px; /* Add margin to space out cards */
-  /* width: calc(25% - 20px);  */
-  padding-top: 25%; 
+  margin: 10px;
+  /* width: calc(25% - 20px); */
+  padding-top: 16%;
   position: relative;
   background-color: #fff;
   text-align: center;
   transition: transform 0.2s ease-in-out;
   max-width: 100%;
   max-height: 100%;
-  overflow: hidden; 
+  overflow: hidden;
+  
 
-
-  /* &:hover {
+  &:hover {
     transform: scale(1.05);
     
-  } */
+  }
 
   .product-card img {
     width: 50%;
@@ -103,7 +103,7 @@ button {
   }
 
  
-
+ /* ----------------------BUTTON ----------------------  */
 
   button.add-to-cart {
     background-color: #007bff;
@@ -123,6 +123,7 @@ button {
 }
 
  /* ----------------------SEARCH ----------------------  */
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -139,3 +140,16 @@ button {
   background-repeat: no-repeat;
   background-position: right 10px center; 
 }
+
+
+
+h3 {
+  display: block;
+  font-size: 1em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+

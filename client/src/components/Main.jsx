@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 function Main() {
 
     return (
-        <div>
+        <div className="bg-main">
 
              <Outlet/>
          

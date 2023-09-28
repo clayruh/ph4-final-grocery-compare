@@ -14,6 +14,7 @@ function SupermarketList() {
     <div>
       <h1>Supermarket List</h1>
       <div className="supermarket-card-container">{mappedSupermarketCards}</div>
+      
     </div>
   );
 }
