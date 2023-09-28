@@ -55,10 +55,8 @@ if __name__ == '__main__':
         for _ in range(50):
             product = Product(
                 name=faker.word(),
-                consumer_id=random.randint(1, 15),
-                image=faker.word(),
-                price=random.randint(1, 20),
-                supermarket_id=random.randint(1,5))
+                image=faker.word()
+            )
             product_list.append(product)
             db.session.add_all(product_list)
             db.session.commit()
@@ -79,8 +77,10 @@ if __name__ == '__main__':
         price_list = []
 
         for _ in range(50):
-            price = Price(price=random.randint(
-                1, 20), product=random.choice(product_list), supermarket=random.choice(supermarket_list))
+            price = Price(price=str(random.randint(
+                1, 20)), 
+                product=random.choice(product_list), 
+                supermarket=random.choice(supermarket_list))
             price_list.append(price)
             db.session.add_all(price_list)
             db.session.commit()

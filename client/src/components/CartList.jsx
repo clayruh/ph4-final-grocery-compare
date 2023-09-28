@@ -12,12 +12,13 @@ function CartList(){
         key={cartItem.id} cartItem={cartItem}
       />
     ))
-
+  
     return (
       <div className='shopping-list'>
+        <h1> THIS IS THE  CART LIST COMPONENT BEING PULLED IN </h1>
+        <button> SEARCH STORES</button>
         <h3>Shopping List</h3>
         {mappedCartItems}
-        <h4> THIS IS THE LIST</h4>
       </div>
   )
 }

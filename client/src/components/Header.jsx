@@ -10,8 +10,8 @@ export default function Header() {
                 <Link className="link" to='/'>Home</Link>
                 <Link className="link" to="/products">Products</Link>
                 <Link className="link" to="/supermarkets">Supermarkets</Link>
-                <Link className="link" to="/about">About</Link>
-                <Link className="link" to="/shopping-cart">Shopping Cart</Link>
+                {/* <Link className="link" to="/about">About</Link> */}
+                {/* <Link className="link" to="/shopping-cart">Shopping Cart</Link> */}
             </nav>
 
         </header>
