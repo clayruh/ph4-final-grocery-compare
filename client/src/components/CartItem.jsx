@@ -4,7 +4,19 @@ import React from 'react'
 const CartItem = ({cartItem}) => {
 
   function handleRemove(){
-    // use the 'delete' route from the backend
+
+
+    const OPTIONS = { 
+      method : "DELETE",
+      headers : { 
+          "Accept" : "application/json",
+          "Content-type" : "application/json"
+      }
+  } 
+      fetch('/cart_items', OPTIONS)
+      .then(response => response.json())
+      .then(newCartItem => ())
+}
     console.log('removed item')
   }
 
