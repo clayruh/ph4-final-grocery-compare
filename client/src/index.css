@@ -24,3 +24,10 @@ body {
   color: white;
   transition: .5s;
 }
+
+.product-card img { 
+  width: 15%;
+  aspect-ratio : 3/2;
+  object-fit: contain;
+  mix-blend-mode: color-burn;
+}

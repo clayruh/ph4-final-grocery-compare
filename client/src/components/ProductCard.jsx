@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState } from "react"
+import CartList from "./CartList"
 
 
 export default function ProductCard({ productObj }) {
@@ -10,22 +11,18 @@ export default function ProductCard({ productObj }) {
     
     function handleAddToCart(e){
 
-        if ( productObj.name == e.target.textContent){
-            return 
-        }
+        e.preventDefault()
 
-        console.log('added to cart')
-
-        // when clicked, item is added as a CartCard to CartList
+        
     }
     
     return (
         <div className='product-card'>
+            <h3>{productObj.name}</h3>
             <img 
             src={productObj.image} 
             alt="product"></img>
-            <h3>{productObj.name}</h3>
-            <button onClick={() => handleAddToCart()}>add to cart</button>
+            <button onClick={() => handleAddToCart(<CartList/>)}>add to cart</button>
 
             {/* <svg onClick={() => handleAddToCart} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
