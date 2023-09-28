@@ -5,3 +5,8 @@ export async function getProducts() {
     return { allProducts }
 }
 
+export async function getSupermarketLoader() {
+    const res = await fetch('http://localhost:5555/supermarkets')
+    const supermarkets = await res.json()
+    return { supermarkets }
+}
