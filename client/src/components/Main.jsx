@@ -8,9 +8,9 @@ function Main() {
 
     return (
         <div>
-             <Outlet/>
+            <Outlet/>
             
-           
+            
 
         </div>
     )

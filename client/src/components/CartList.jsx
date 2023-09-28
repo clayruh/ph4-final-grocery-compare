@@ -1,6 +1,6 @@
 import React from 'react'
 import {useLoaderData} from 'react-router-dom'
-import CartCard from "./CartCard.jsx"
+import CartItem from "./CartItem.jsx"
 
 
 function CartList(){
@@ -8,11 +8,16 @@ function CartList(){
     const { allCartItems } = useLoaderData()
 
     const mappedCartItems = allCartItems?.map(cartItem => (
-      <CartCard key={cartItem.id} cartItem={cartItem}
+      <CartItem 
+        key={cartItem.id} cartItem={cartItem}
       />
     ))
 
     
+    for(let i = 0; i < mappedCartItems; i++)
+    
+    
+  
     return (
       <div className='shopping-list'>
         <h3>Shopping List</h3>
