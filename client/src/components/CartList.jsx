@@ -11,6 +11,7 @@ function CartList(){
       <CartCard key={cartItem.id} cartItem={cartItem}
       />
     ))
+
     
     return (
       <div className='shopping-list'>
