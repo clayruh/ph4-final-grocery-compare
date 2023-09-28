@@ -10,3 +10,8 @@ export async function getSupermarketLoader() {
     const supermarkets = await res.json()
     return { supermarkets }
 }
+export async function getCarts() {
+    const cartsResponse = await fetch('http://localhost:555/get_cart:id')
+    const allCarts = await cartsResponse.json()
+    return { allCarts }
+}

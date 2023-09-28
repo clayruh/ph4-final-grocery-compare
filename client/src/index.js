@@ -10,10 +10,11 @@ import Home from './components/Home';
 import ProductList from './components/ProductList'
 import About from './components/About';
 import SupermarketList from './components/SupermarketList';
+import CartList from './components/CartList'
 
 // LOADER 
 import { getProducts } from './loaders'
-
+import  {getCarts } from './loaders'
 import { getSupermarketLoader } from './loaders';
 
 const router = createBrowserRouter([
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
         path:"/supermarket",
         element: <SupermarketList/>,
         loader: getSupermarketLoader
+      },
+      {
+        path:"/cart_item",
+        element: <CartList/>,
+        loader: getCarts
       }
     ]
   }
