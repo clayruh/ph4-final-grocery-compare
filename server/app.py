@@ -39,8 +39,9 @@ def get_carts():
 @app.get('/cart_items/<int:id>')
 def get_cart_by_id(id):
     try:
-        cart = CartItem.query.filter(CartItem.id == id).first()
-        return jsonify(cart.to_dict(rules=('-consumer',))), 200
+        # do we actually query by the consumer_id?
+        cart_items = CartItem.query.filter(CartItem.consumer_id == id)
+        return jsonify([cart.to_dict(rules=('-consumer',)) for cart in cart_items]), 200
     except:
         return {"error": "cart not found"}, 404
 
@@ -49,6 +50,7 @@ def create_cart():
     data = request.json
     new_cart = CartItem(
         consumer_id=data['consumer_id'], product_id=data['product_id'])
+    # don't duplicate if product_id already exists
     db.session.add(new_cart)
     db.session.commit()
     return jsonify(new_cart.to_dict()), 201

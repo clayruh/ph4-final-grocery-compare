@@ -1,19 +1,21 @@
-import { useParams } from "react-router-dom"
-import { useState } from "react"
-import CartList from "./CartList"
-
-
-export default function ProductCard({ productObj }) {
-
-
-    const [addItems, setAddItems] = useState(false)
+export default function ProductCard({ productObj, addCartItems }) {
     
-    
-    function handleAddToCart(e){
-
-        e.preventDefault()
-
-        
+    function handleAddToCart(e){        
+        // e.preventDefault()
+        const OPTIONS = { 
+            method : "POST",
+            headers : { 
+                "Accept" : "application/json",
+                "Content-type" : "application/json"
+            },
+            body : JSON.stringify({ 
+                consumer_id: 1,
+                product_id : productObj.id
+            })
+        } 
+        fetch('/cart_items', OPTIONS)
+        .then(response => response.json())
+        .then(newCartItem => addCartItems(newCartItem))
     }
     
     return (
@@ -22,7 +24,7 @@ export default function ProductCard({ productObj }) {
             <img 
             src={productObj.image} 
             alt="product"></img>
-            <button onClick={() => handleAddToCart(<CartList/>)}>add to cart</button>
+            <button onClick={() => handleAddToCart()}>add to cart</button>
 
             {/* <svg onClick={() => handleAddToCart} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
