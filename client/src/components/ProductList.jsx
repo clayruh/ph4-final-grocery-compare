@@ -24,10 +24,10 @@ export default function ProductList() {
         <div className="search">
           <Search setFilteredProducts={setFilteredProducts} />
         </div>
+        <CartList/>
         <div className="products-container">
           {mapProductCards}
         </div>
-        <CartList/>
        
       </div>
     </>
