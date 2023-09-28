@@ -11,7 +11,7 @@ export default function Header() {
                 <Link className="link" to="/products">Products</Link>
                 <Link className="link" to="/supermarkets">Supermarkets</Link>
                 <Link className="link" to="/about">About</Link>
-                <Link className="link" to="/carts">Carts</Link>
+                <Link className="link" to="/shopping-cart">Shopping Cart</Link>
             </nav>
 
         </header>

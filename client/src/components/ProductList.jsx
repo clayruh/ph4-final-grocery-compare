@@ -8,7 +8,7 @@ export default function ProductList() {
   console.log(allProducts)
   const [filteredProducts, setFilteredProducts] = useState("")
 
-  const searchProducts = allProducts?.filter(product => { product.name.toLowerCase().includes(filteredProducts.toLowerCase())})
+  const searchProducts = allProducts.filter(product => product.name.toLowerCase().includes(filteredProducts.toLowerCase()))
   
   const mapProductCards = searchProducts?.map(productObj => (
     <ProductCard 

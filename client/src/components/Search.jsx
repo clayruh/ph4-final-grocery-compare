@@ -6,11 +6,11 @@ export default function Search({setFilteredProducts}) {
     
     return (
         <div className="search-bar">
-            <label htmlFor="search">Search Products:</label>
+            <label htmlFor="search">Search products:</label>
             <input
                 type="text"
                 id="search"
-                placeholder="Type a product to search..."
+                placeholder="Search for a product..."
                 onChange={handleSearch}
             />
             

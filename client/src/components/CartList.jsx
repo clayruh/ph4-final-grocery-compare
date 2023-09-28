@@ -13,7 +13,8 @@ function CartList(){
     ))
     
     return (
-      <div>
+      <div className='shopping-list'>
+        <h3>Shopping List</h3>
         {mappedCartItems}
       </div>
   )
