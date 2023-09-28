@@ -8,15 +8,25 @@ const CartItem = ({cartItem}) => {
     console.log('removed item')
   }
 
+  function handleSearchStore(){ 
+    
+    console.log("lets checkout the stores!!!!!!!")
+  }
+
   
   return (
     <>
-    <p>Consumer id: {cartItem.consumer_id}</p>
-    <ul>Products: 
+      <p>Consumer id: {cartItem.consumer_id}</p>
+        <ul>Products: 
       {/* make a for loop of all the product names and prices */}
-        <li>{cartItem.product.name}</li>
-    </ul>
-        <button onClick={handleRemove}>Remove item</button>
+
+          
+
+      
+          <li>{cartItem.product.name}</li>
+          <button onClick={handleRemove}>Remove item</button>
+          <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button>
+        </ul>
 
     </>
   )

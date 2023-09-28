@@ -33,7 +33,6 @@ button {
   text-align: center;
 }
 
-
 .shopping-list {
   padding: 6rem;
 }
@@ -81,12 +80,11 @@ button {
   overflow: hidden; 
 
 
-  &:hover {
+  /* &:hover {
     transform: scale(1.05);
     
-  }
+  } */
 
- /* ----------------------PRODUCT ---------------------- */
   .product-card img {
     width: 50%;
     object-fit: contain;

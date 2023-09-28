@@ -13,7 +13,7 @@ import About from './components/About'
 import CartList from './components/CartList'
 
 // LOADER 
-import { getProducts, getSupermarketLoader, getCarts } from './loaders'
+import { getProducts, getSupermarketLoader, getCartItems } from './loaders'
 
 const router = createBrowserRouter([
 
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path:"/shopping-cart",
         element: <CartList/>,
-        loader: getCarts
+        loader: getCartItems
       }
     ]
   }
