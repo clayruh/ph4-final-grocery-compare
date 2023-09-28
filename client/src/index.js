@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         loader: getSupermarkets
       },
       {
-        path:"/carts",
+        path:"/shopping-cart",
         element: <CartList/>,
         loader: getCartItems
       }
