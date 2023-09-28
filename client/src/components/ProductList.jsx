@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ProductCard from "./ProductCard.jsx"
 import Search from './Search';
+import CartList from "./CartList.jsx";
 
 export default function ProductList() {
   const { allProducts } = useLoaderData()  || {}
@@ -26,6 +27,8 @@ export default function ProductList() {
         <div className="products-container">
           {mapProductCards}
         </div>
+        <CartList/>
+       
       </div>
     </>
   );

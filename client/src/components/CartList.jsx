@@ -22,6 +22,7 @@ function CartList(){
       <div className='shopping-list'>
         <h3>Shopping List</h3>
         {mappedCartItems}
+        <h4> THIS IS THE LIST</h4>
       </div>
   )
 }
