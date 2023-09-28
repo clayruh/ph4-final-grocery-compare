@@ -4,13 +4,20 @@ import React from 'react'
 const CartItem = ({cartItem}) => {
 
   function handleRemove(){
-    // use the 'delete' route from the backend
-    console.log('removed item')
-  }
 
-  function handleSearchStore(){ 
-    
-    console.log("lets checkout the stores!!!!!!!")
+
+    const OPTIONS = { 
+      method : "DELETE",
+      headers : { 
+          "Accept" : "application/json",
+          "Content-type" : "application/json"
+      }
+  } 
+      fetch('/cart_items', OPTIONS)
+      .then(response => response.json())
+      .then(newCartItem => ())
+}
+    console.log('removed item')
   }
 
   
@@ -25,7 +32,6 @@ const CartItem = ({cartItem}) => {
       
           <li>{cartItem.product.name}</li>
           <button onClick={handleRemove}>Remove item</button>
-          <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button>
         </ul>
 
     </>
