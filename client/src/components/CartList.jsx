@@ -13,11 +13,6 @@ function CartList({ cart }){
         key={cartItem.id} cartItem={cartItem}
       />
     ))
-
-    
-    for(let i = 0; i < mappedCartItems; i++)
-    
-    
   
     return (
       <div className='shopping-list'>
