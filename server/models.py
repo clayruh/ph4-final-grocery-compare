@@ -60,7 +60,7 @@ class Price(db.Model, SerializerMixin):
     __tablename__ = 'prices'
 
     id = db.Column(db.Integer, primary_key=True, unique=True)
-    price = db.Column(db.Float, nullable=False)
+    price = db.Column(db.String, nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
     supermarket_id = db.Column(db.Integer, db.ForeignKey('supermarkets.id'))
 
