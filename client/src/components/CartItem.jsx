@@ -7,17 +7,12 @@ const CartItem = ({cartItem}) => {
     // use the 'delete' route from the backend
     console.log('removed item')
   }
-
   
   return (
     <>
     <p>Consumer id: {cartItem.consumer_id}</p>
-    <ul>Products: 
-      {/* make a for loop of all the product names and prices */}
-        <li>{cartItem.product.name}</li>
-    </ul>
+    <p>Product: {cartItem.product.name}</p>
         <button onClick={handleRemove}>Remove item</button>
-
     </>
   )
 }

@@ -1,13 +1,14 @@
 import React from 'react'
-import {useLoaderData} from 'react-router-dom'
+import {useLoaderData, useParams} from 'react-router-dom'
 import CartItem from "./CartItem.jsx"
 
+function CartList({ cart }){
 
-function CartList(){
+    // do we even need this loader?? like what happens when the consumer logs back in? will the cart items from before load?
+    const { cartItems } = useLoaderData()
 
-    const { allCartItems } = useLoaderData()
-
-    const mappedCartItems = allCartItems?.map(cartItem => (
+    // a little funky here, cart items disappear on refresh 
+    const mappedCartItems = cart.map(cartItem => (
       <CartItem 
         key={cartItem.id} cartItem={cartItem}
       />
@@ -15,13 +16,10 @@ function CartList(){
   
     return (
       <div className='shopping-list'>
-        <h1 className = 'temporary'> THIS IS THE  CART LIST COMPONENT BEING PULLED IN </h1>
-        <h1>Shopping List</h1>
-        <button> SEARCH STORES</button>
+        <h3>Shopping Cart</h3>
         {mappedCartItems}
-
-
-        <h2 className = 'temporary'> This box will populate with the clicked items</h2>
+        {/* use params to make the button go to new component */}
+        <button> SEARCH STORES</button>
       </div>
   )
 }
