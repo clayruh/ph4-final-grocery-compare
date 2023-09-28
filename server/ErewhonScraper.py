@@ -1,14 +1,16 @@
 import time
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from models import Product, db
+from models import Product, db, Supermarket, Price
 import ipdb
-# from ..server.config import db
+from app import app
 
 class ErewhonScraper:
     def __init__(self):
         self.items = []
+        self.prices = []
         self.browser = self.init_browser()
+        self.supermarket = Supermarket(id=1, name="Erewhon", address="339 N Beverly Dr Beverly Hills, CA 90210")
 
     def init_browser(self):
         options = webdriver.ChromeOptions()
@@ -37,26 +39,24 @@ class ErewhonScraper:
             name = header_tag.get_text() if header_tag else None
             image = img_tag.get('src') if img_tag else None
 
-            new_product = Product(image, name, price)
-            # self.products.append(new_product)
-            print(new_product)
-            db.session.add(new_product)
-
-        db.session.commit()
-        self.print_items()
-
+            new_product = Product(image=image, name=name)
+            new_price = Price(price=price, product=new_product, supermarket_id=1)
+            self.items.append(new_product)
+            self.prices.append(new_price)
+        with app.app_context():
+            db.session.add_all(self.items)
+            db.session.add_all(self.prices)
+            db.session.add(self.supermarket)
+            db.session.commit()
+            
     def print_items(self):
         for item in self.items:
             print(item)
 
-
-ipdb.set_trace()
-
-
-# Call the method to see the output
-scraper = ErewhonScraper()
-scraper.make_item()
-scraper.print_items()
+if __name__ == '__main__':
+    scraper = ErewhonScraper()
+    scraper.make_item()
+    # scraper.print_items()
 
 
 # prices = [product.find(

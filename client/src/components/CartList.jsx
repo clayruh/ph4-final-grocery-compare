@@ -1,21 +1,28 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {useLoaderData} from 'react-router-dom'
-import CartCard from "./CartCard.jsx"
+import CartItem from "./CartItem.jsx"
 
 
 function CartList(){
-    const { allCartItems } = useLoaderData() || {}
+
+    const { allCartItems } = useLoaderData()
 
     const mappedCartItems = allCartItems?.map(cartItem => (
-      <CartCard 
+      <CartItem 
         key={cartItem.id} cartItem={cartItem}
       />
     ))
+
     
+    for(let i = 0; i < mappedCartItems; i++)
+    
+    
+  
     return (
       <div className='shopping-list'>
         <h3>Shopping List</h3>
         {mappedCartItems}
+        <h4> THIS IS THE LIST</h4>
       </div>
   )
 }

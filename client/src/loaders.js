@@ -16,8 +16,9 @@ export async function getCartItems() {
     const allCartItems = await cartItemsResponse.json()
     return { allCartItems }
 }
+
 export async function getCarts() {
     const cartsResponse = await fetch('http://localhost:5555/cart_items:id')
     const cartItem = await cartsResponse.json()
-    return {cartItem }
+    return { cartItem }
 }
