@@ -24,7 +24,7 @@ function CartList({ cart }){
   
     return (
       <div className='shopping-list'>
-        <h3 className='cart-header'>Shopping Cart</h3>
+        <h3 className='cart-header'>Grocery List</h3>
         <button className = 'search-stores' onClick={handleSearchStore(navigate => ('/SearchStores'))}>Search Stores</button>
         {mappedCartItems}
         {/* use params to make the button go to new component */}

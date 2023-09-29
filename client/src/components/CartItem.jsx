@@ -18,19 +18,18 @@ const CartItem = ({cartItem}) => {
 
   return (
     <>
+    {/* make a for loop of all the product names and prices */}
+    {/* do we need to display the consumer id?  */}
+    <div>
       <p>Consumer id: {cartItem.consumer_id}</p>
+      <div className = 'cart-item-details'>
         <ul>Products: 
-      {/* make a for loop of all the product names and prices */}
-
-
-
-
           <li>{cartItem.product.name}</li>
-          <button onClick={handleRemove}>Remove item</button>
-          {/* <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button> */}
-        
         </ul>
-
+        <button className ='remove-button' onClick={handleRemove}>Remove item</button>
+          {/* <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button> */}
+      </div>
+    </div>
     </>
   )
 }
