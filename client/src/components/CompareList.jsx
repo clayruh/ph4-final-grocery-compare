@@ -25,7 +25,7 @@ function SearchStores() {
             <h2>Compare Stores</h2>
             <div className="compare-prices-container">
                 <div className="compare-prices-labels">
-                    {/* how do we get the supermarket names dynamically? can we? or do it manually? */}
+                    {/* should we get supermarkets manually or dynamically? */}
                     <h4>Products:</h4>
                     <h4>Trader Joe's</h4>
                     <h4>Erewhon</h4>

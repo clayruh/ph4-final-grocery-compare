@@ -51,7 +51,6 @@ def create_cart():
     data = request.json
     product_id = data['product_id']
     existing_cart_item = CartItem.query.filter_by(consumer_id=data['consumer_id'], product_id=product_id).first()
-# if statement is janky
     if existing_cart_item is None:
         new_cart_item = CartItem(
             consumer_id=data['consumer_id'], product_id=data['product_id'])

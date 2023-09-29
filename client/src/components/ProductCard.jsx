@@ -23,7 +23,11 @@ export default function ProductCard({ productObj, addCartItems }) {
         } 
         fetch('/cart_items', OPTIONS)
         .then(response => response.json())
-        .then(newCartItem => addCartItems(newCartItem))
+        .then(newCartItem => {
+          if (newCartItem.id) {
+            addCartItems(newCartItem)
+          }
+        })
     }
     
     return (

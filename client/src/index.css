@@ -321,6 +321,7 @@ ul {
 /* -----------------------------for the compare cart------------------------ */
 
 .product-image{ 
-  width: 30%;
+  width: 80%;
   object-fit: contain;
+  margin: 0 auto;
 }
