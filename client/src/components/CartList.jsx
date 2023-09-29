@@ -22,15 +22,15 @@ function CartList({ cart, setCart }){
     return (
       <div className='shopping-list'>
         <h3 className='cart-header'>Grocery List</h3>
-        <div className='cart-items'>
-          {mappedCartItems}
-        </div>
         <button 
           className='search-stores' 
           onClick={handleSearchStores}
         >
           Search Stores
         </button>
+        <div className='cart-items'>
+          {mappedCartItems}
+        </div>
       </div>
   )
 }
