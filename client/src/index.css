@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 }
 
 nav {
@@ -70,7 +70,7 @@ button {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  /* width: calc(25% - 20px); */
+  width: calc(5% - 0.5px);
   padding-top: 16%;
   position: relative;
   background-color: #fff;
@@ -147,10 +147,12 @@ button {
 
 h3 {
   display: block;
-  font-size: 1em;
+  font-size: 0.9em;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+
 }
