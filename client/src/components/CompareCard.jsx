@@ -1,6 +1,8 @@
 export default function CompareCard({ cartItem }) {
 
-    
+    function loopPrices() {
+        
+    }
 
     return (
         <>
