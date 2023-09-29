@@ -10,7 +10,7 @@ import Home from './components/Home';
 import ProductList from './components/ProductList'
 import SupermarketList from './components/SupermarketList';
 import About from './components/About'
-import SearchStores from './components/SearchStores'
+import CompareList from './components/CompareList'
 
 // LOADER 
 import { getProducts, getSupermarketLoader } from './loaders'
@@ -41,8 +41,8 @@ const router = createBrowserRouter([
       },
       {
         path:"/compare-stores",
-        element: <SearchStores/>
-        // loader: 
+        element: <CompareList/>,
+        loader: getProducts
       }
     ]
   }
