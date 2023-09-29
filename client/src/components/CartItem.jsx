@@ -21,9 +21,11 @@ export default function CartItem({ cartItem, cart, setCart }) {
     return (
         <div className="cart-item">
             <p>Consumer id: {cartItem.consumer_id}</p>
-            <p>Product: {cartItem.product.name}</p>
-            {/* I'm confused why passing in cartItem here makes it know about itself? */}
-            <button onClick={() => handleRemove(cartItem)}>Remove</button>
+            <div className="cart-item-details">
+                <p>Product: {cartItem.product.name}</p>
+                {/* I'm confused why passing in cartItem here makes it know about itself? */}
+                <button className="remove-button" onClick={() => handleRemove(cartItem)}>Remove</button>
+            </div>
         </div>
     )
 }

@@ -1,3 +1,13 @@
+/* IMPORTED FONT OPTIONS.... */
+/* font-family: 'Abel', sans-serif;
+font-family: 'Cormorant', serif;
+font-family: 'Edu QLD Beginner', cursive;
+font-family: 'Homemade Apple', cursive;
+font-family: 'Love Ya Like A Sister', cursive;
+font-family: 'Rock Salt', cursive;
+font-family: 'Yomogi', cursive;
+ */
+
 * {
   padding: 0;
   margin: 0;
@@ -16,7 +26,8 @@ nav {
 nav a {
   padding: 0.5em 1em;
   text-transform: uppercase;
-  color: inherit
+  color: inherit;
+  font-family: 'Cormorant', serif;
 
   
 }
@@ -27,14 +38,7 @@ body {
   background-color: #F6F2E9
 }
 
-button {
-  border: none;
-  border-radius: 1rem;
-  height: 2rem;
-  width: 6rem;
-  background-color: lightblue;
 
-}
 
 .temporary {
   text-align: center;
@@ -68,6 +72,8 @@ button {
   align-items: flex-start;
   padding: 8px;
   margin-left: -4px;
+ 
+  
 
 }
 
@@ -111,29 +117,34 @@ button {
     justify-content: space-between;
   }
 
-  .cart-header {
-    height: 2rem;
-  }
 
  
  /* ----------------------BUTTON ----------------------  */
 
-  button.add-to-cart {
-    background-color: #007bff;
-    color: #fff;
+  .add-to-cart {
+    background-color: inherit;
+    /* color: #fff; */
     border: none;
     border-radius: 50%;
-    padding: 0.5em 1em;
+    padding: 1em 1em;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.2s ease-in-out;
+    /* transition: background-color 0.2s ease-in-out; */
     font-size: 1.5em;
 
-    &:hover {
-      background-color: #0056b3;
-    }
+
   }
 }
+
+button {
+  border: none;
+  border-radius: 1rem;
+  height: 2rem;
+  width: 6rem;
+  background-color: inherit;
+
+}
+
 
 
 .search-stores {
@@ -176,11 +187,14 @@ button {
 }
 
 h1 {
-  font-family: 'Rock Salt', cursive;
+  font-family: 'Yomogi' ;
   color:rgb(104, 126, 144);
-  font-size: 4rem;
+  font-size: 8rem;
   margin: 2rem;
 }
+
+
+
 
 
 h3 {
@@ -190,11 +204,16 @@ h3 {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Cormorant', serif;
+  font-weight: 500; 
 
-  
+}
 
+
+
+.cart-header {
+  font-size: 3rem;
+  font-family: 'Cormorant', serif;
 }
 
 
@@ -219,7 +238,41 @@ h3 {
   padding: 0 1rem; /* Add padding to separate columns */
 }
 
+/* this is handling the two coloumn grid in the list */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.cart-item-details {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Allow the details to grow and push the button to the right */
+}
+
 ul {
-  margin: 2rem;
-  
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-right: 1rem;
+}
+
+.remove-button {
+  background-color: #ff5733; /* Choose your button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: #e64c29; /* Choose your button hover color */
+  transition: background-color 0.3s;
 }

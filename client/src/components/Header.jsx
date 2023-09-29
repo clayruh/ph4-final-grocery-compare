@@ -5,7 +5,7 @@ export default function Header() {
 
     return (
         <header className ='main-header'>
-            <h1>Grocery Compare</h1>
+            <h1>Shop Smart</h1>
             <nav className='nav-bar'>
                 <Link className="link" to='/'>Home</Link>
                 <Link className="link" to="/products">Products</Link>

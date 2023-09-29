@@ -21,7 +21,7 @@ function CartList({ cart, setCart }){
   
     return (
       <div className='shopping-list'>
-        <h3 className='cart-header'>Shopping Cart</h3>
+        <h3 className='cart-header'>Grocery List</h3>
         <div className='cart-items'>
           {mappedCartItems}
         </div>

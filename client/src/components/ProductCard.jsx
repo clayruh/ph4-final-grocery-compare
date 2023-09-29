@@ -1,4 +1,13 @@
+import { useState } from "react";
+
+
 export default function ProductCard({ productObj, addCartItems }) {
+
+  const [add, setAdd] = useState(false)
+
+  function handleToggle(){
+    setAdd(!add)
+  }
     
     function handleAddToCart(){        
         const OPTIONS = { 
@@ -28,9 +37,24 @@ export default function ProductCard({ productObj, addCartItems }) {
               className="product-image"
             />
           </div>
-          <button onClick={() => handleAddToCart()} className="add-to-cart">
-            <span>Add to Cart</span>
+          <button onClick={handleToggle} className=" add-to-cart">
+          {
+            add ? 
+            (<i className="fa-solid fa-minus" onClick={() => handleAddToCart()}></i>) 
+            : 
+            (<i className="fa-solid fa-plus " onClick={() => handleAddToCart()}></i>)
+          }
+
           </button>
+ 
+          
+
+
+
+  
+          {/* <button onClick={() => handleAddToCart()} className="add-to-cart">
+            <span>Add to Cart</span>
+          </button> */}
         </div>
       );
 }
