@@ -1,20 +1,24 @@
-import React from 'react'
-
-// this is out cart Item
-const CartItem = ({cartItem}) => {
-
-  function handleRemove(){
-    // use the 'delete' route from the backend
-    // use the 'delete' route from the backend
-    console.log('removed item')
-  }
-
-  function handleSearchStore(){ 
+export default function CartItem({ cartItem, cart, setCart }) {
     
-    console.log("lets checkout the stores!!!!!!!")
-  }
+    function deleteCartItem(removedCartItem) {
+        const filteredItems = cart.filter( item => item.id !== removedCartItem.id )
+        setCart(filteredItems)
+    }
 
+    function handleRemove(cartItem) {
+        console.log(cartItem)
+        const OPTIONS = {method: 'DELETE'}
+        fetch(`http://localhost:5555/cart_items/${cartItem.product_id}`, OPTIONS)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Network response was not ok')
+            }
+            deleteCartItem(cartItem)
+        })
+        .catch(error => { console.error('Error:', error) })
+    }
 
+<<<<<<< HEAD
 
   return (
     <>
@@ -31,6 +35,16 @@ const CartItem = ({cartItem}) => {
     </div>
     </>
   )
+=======
+    return (
+        <div className="cart-item">
+            <p>Consumer id: {cartItem.consumer_id}</p>
+            <div className="cart-item-details">
+                <p>Product: {cartItem.product.name}</p>
+                {/* I'm confused why passing in cartItem here makes it know about itself? */}
+                <button className="remove-button" onClick={() => handleRemove(cartItem)}>Remove</button>
+            </div>
+        </div>
+    )
+>>>>>>> 14743c938058ac5c152935a8061f4c424948c708
 }
-
-export default CartItem
