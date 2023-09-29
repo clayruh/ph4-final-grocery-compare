@@ -9,6 +9,7 @@ export default function ProductList() {
   const { allProducts } = useLoaderData() || {}
 
   // STATES //
+
   const [filteredProducts, setFilteredProducts] = useState("")
   const [cart, setCart] = useState([])
 

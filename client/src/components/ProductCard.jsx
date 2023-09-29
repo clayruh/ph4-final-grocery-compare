@@ -39,7 +39,7 @@ export default function ProductCard({ productObj, addCartItems }) {
               className="product-image"
             />
           </div>
-          <button onClick={handleToggle} className=" add-to-cart">
+          <button onClick={handleToggle} className=" add-to-cart icon-container">
           {
             add ? 
             (<i className="fa-solid fa-minus" onClick={() => handleAddToCart()}></i>) 

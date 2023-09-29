@@ -25,7 +25,6 @@ nav {
 
 nav a {
   padding: 0.5em 1em;
-  text-transform: uppercase;
   color: inherit;
   font-family: 'Cormorant', serif;
 
@@ -54,12 +53,12 @@ body {
 
 .link {
   text-decoration: none;
-  margin: 1.2em;
+  font-size: 2rem;
+  margin: 1rem;
 }
 
 .link:hover {
-  background-color: black;
-  color: white;
+  color: rgb(36, 206, 209);
   transition: .5s;
 }
 
@@ -83,7 +82,8 @@ body {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  /* width: calc(5% - 0.5px); */
+  width: 15rem;
+  height: 25rem;
   padding-top: 16%;
   position: relative;
   background-color: #fff;
@@ -100,9 +100,21 @@ body {
     
   }
 
+  /* Plus and Minus Icon Styles */
+.product-card .icon {
+  position: absolute;
+  bottom: 10px; /* Adjust the vertical position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px; /* Adjust the icon size as needed */
+  color: #000; /* Set the icon color */
+  cursor: pointer;
+}
+
   .product-card img {
     width: 50%;
     object-fit: contain;
+
  
   }
 
@@ -136,9 +148,10 @@ body {
   }
 }
 
+/* this button is for the list */
 button {
   border: none;
-  border-radius: 1rem;
+  border-radius: 10rem;
   height: 2rem;
   width: 6rem;
   background-color: inherit;
@@ -146,18 +159,22 @@ button {
 }
 
 
-
+/* list effects */
 .search-stores {
   width: 13rem;
   height: 4rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-bottom: 2rem;
+  color: white;
+  background-color: rgb(104,126,143);
 }
 
+
 .search-stores:hover {
-  color: darkcyan;
+  color: rgb(104,126,143);
   background-color: white;
-  transition: .3s;
+  border: 1px solid rgb(104,126,143);
+  transition: .4s;
   cursor: pointer;
 
 }
@@ -176,10 +193,10 @@ button {
 .search-input {
   flex-grow: 1;
   border: none;
-  padding: 5px 10px; 
+  padding: 20px 30px; 
   font-size: 14px;
   background-repeat: no-repeat;
-  border-radius: 1rem;
+  border-radius: 5rem;
   background-position: right 10px center; 
   
   
@@ -199,7 +216,7 @@ h1 {
 
 h3 {
   display: block;
-  font-size: 0.9em;
+  font-size: 1.5rem;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
@@ -229,12 +246,12 @@ h3 {
 }
 
 .product-list {
-  flex: 1; /* Take up the left column */
+  flex: 8; /* Take up the left column */
   padding: 0 1rem; /* Add padding to separate columns */
 }
 
 .cart-list {
-  flex: 1; /* Take up the right column */
+  flex: 2; /* Take up the right column */
   padding: 0 1rem; /* Add padding to separate columns */
 }
 
@@ -250,11 +267,17 @@ h3 {
   background-color: #fff;
 }
 
+
 .cart-item-details {
+  flex-grow:1;
+  justify-content: space-between;
+  margin: 2rem;
+
   display: flex;
   align-items: center;
   flex-grow: 1; /* Allow the details to grow and push the button to the right */
 }
+
 
 ul {
   margin: 0;
@@ -275,4 +298,22 @@ ul {
 .remove-button:hover {
   background-color: #e64c29; /* Choose your button hover color */
   transition: background-color 0.3s;
+}
+
+
+/* Add this CSS to your existing styles */
+.icon-container {
+  position: absolute;
+  bottom: 20px; /* Adjust the value to control the vertical position */
+  left: 50%; /* Center the icons horizontally */
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.add-to-cart.remove {
+  
+  background-color: #ff5733;
+  color: white;
+  
 }
