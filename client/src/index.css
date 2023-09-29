@@ -317,3 +317,10 @@ ul {
   color: white;
   
 }
+
+/* -----------------------------for the compare cart------------------------ */
+
+.product-image{ 
+  width: 30%;
+  object-fit: contain;
+}

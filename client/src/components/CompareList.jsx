@@ -14,10 +14,10 @@ function SearchStores() {
 
     const mappedCartItems = cartItems.map(cartItem => (
         <CompareCard 
-          key={cartItem.id} 
-          cartItem={cartItem}
+        key={cartItem.id} 
+        cartItem={cartItem}
         />
-      ))
+    ))
 
     return ( 
         <div>
