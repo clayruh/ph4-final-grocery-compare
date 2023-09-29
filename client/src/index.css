@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 }
 
 nav {
@@ -150,6 +150,8 @@ h3 {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+
 }
 
