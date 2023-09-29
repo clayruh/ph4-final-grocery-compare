@@ -29,18 +29,21 @@ export default function ProductList() {
 
   return (
     <>
-      <div className="product-page">
-        <div className="cart-list">
-          <CartList cart={cart}/>
-        </div>
-        <div className="search">
-          <Search setFilteredProducts={setFilteredProducts} />
-        </div>
-        <div className="products-container">
-          {mapProductCards}
-        </div>
-       
+<div className="product-page">
+  <div className="search">
+    <Search setFilteredProducts={setFilteredProducts} />
+  </div>
+  <div className="content">
+    <div className="product-list">
+      <div className="products-container">
+        {mapProductCards}
       </div>
+    </div>
+    <div className="cart-list">
+      <CartList cart={cart} />
+    </div>
+  </div>
+</div>
     </>
   );
 }

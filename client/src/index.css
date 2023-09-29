@@ -2,16 +2,22 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: rgb(69, 68, 68)
   /* border: 1px solid orange; */
 }
 
 nav {
   text-align: center;
+  margin: 2rem;
+  
   
 }
 
 nav a {
   padding: 0.5em 1em;
+  text-transform: uppercase;
+  color: inherit
+
   
 }
 
@@ -102,6 +108,10 @@ button {
     justify-content: space-between;
   }
 
+  .cart-header {
+    height: 2rem;
+  }
+
  
  /* ----------------------BUTTON ----------------------  */
 
@@ -122,6 +132,22 @@ button {
   }
 }
 
+
+.search-stores {
+  width: 13rem;
+  height: 4rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-stores:hover {
+  color: darkcyan;
+  background-color: white;
+  transition: .3s;
+  cursor: pointer;
+
+}
+
  /* ----------------------SEARCH ----------------------  */
 
 .search-bar {
@@ -130,6 +156,7 @@ button {
   border-radius: 8px;
   padding: 10px;
   width: 500px;
+  
 }
 
 .search-input {
@@ -138,9 +165,19 @@ button {
   padding: 5px 10px; 
   font-size: 14px;
   background-repeat: no-repeat;
+  border-radius: 1rem;
   background-position: right 10px center; 
+  
+  
+
 }
 
+h1 {
+  font-family: 'Rock Salt', cursive;
+  color:rgb(104, 126, 144);
+  font-size: 4rem;
+  margin: 2rem;
+}
 
 
 h3 {
@@ -153,5 +190,33 @@ h3 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
 
+  
+
 }
 
+
+/* this will handle the list to side bar */
+.product-page {
+  display: flex;
+  flex-direction: column; /* Stack the search and content vertically */
+}
+
+.content {
+  display: flex;
+  flex-direction: row; /* Arrange the product list and cart horizontally */
+}
+
+.product-list {
+  flex: 1; /* Take up the left column */
+  padding: 0 1rem; /* Add padding to separate columns */
+}
+
+.cart-list {
+  flex: 1; /* Take up the right column */
+  padding: 0 1rem; /* Add padding to separate columns */
+}
+
+ul {
+  margin: 2rem;
+  
+}

@@ -20,14 +20,14 @@ function CartList({ cart }){
     function handleSearchStore(){ 
     
       console.log("lets checkout the stores!!!!!!!")
-    }
+    } 
   
     return (
       <div className='shopping-list'>
-        <h3>Shopping Cart</h3>
+        <h3 className='cart-header'>Shopping Cart</h3>
+        <button className = 'search-stores' onClick={handleSearchStore(navigate => ('/SearchStores'))}>Search Stores</button>
         {mappedCartItems}
         {/* use params to make the button go to new component */}
-        <button onClick={handleSearchStore(navigate => ('/SearchStores'))}>Search Stores</button>
       </div>
   )
 }
