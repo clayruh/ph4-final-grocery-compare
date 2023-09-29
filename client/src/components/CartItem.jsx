@@ -5,6 +5,7 @@ const CartItem = ({cartItem}) => {
 
   function handleRemove(){
     // use the 'delete' route from the backend
+    // use the 'delete' route from the backend
     console.log('removed item')
   }
 
@@ -13,18 +14,20 @@ const CartItem = ({cartItem}) => {
     console.log("lets checkout the stores!!!!!!!")
   }
 
-  
+
+
   return (
     <>
       <p>Consumer id: {cartItem.consumer_id}</p>
         <ul>Products: 
       {/* make a for loop of all the product names and prices */}
 
-          
 
-      
+
+
           <li>{cartItem.product.name}</li>
           <button onClick={handleRemove}>Remove item</button>
+          <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button>
           <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button>
         </ul>
 
