@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from flask import request, jsonify
 from flask_restful import Resource
+from sqlalchemy.exc import SQLAlchemyError
 
 # Local imports
 from config import app, db
@@ -39,31 +40,41 @@ def get_carts():
 @app.get('/cart_items/<int:id>')
 def get_cart_by_id(id):
     try:
-        # do we actually query by the consumer_id?
         cart_items = CartItem.query.filter(CartItem.consumer_id == id)
+        # could also remove '-product.prices'
         return jsonify([cart.to_dict(rules=('-consumer',)) for cart in cart_items]), 200
     except:
-        return {"error": "cart not found"}, 404
+        return {"error": "cart items not found"}, 404
 
 @app.post('/cart_items')
 def create_cart():
     data = request.json
-    new_cart = CartItem(
-        consumer_id=data['consumer_id'], product_id=data['product_id'])
-    # don't duplicate if product_id already exists
-    db.session.add(new_cart)
-    db.session.commit()
-    return jsonify(new_cart.to_dict()), 201
+    product_id = data['product_id']
+    existing_cart_item = CartItem.query.filter_by(consumer_id=data['consumer_id'], product_id=product_id).first()
+# if statement is janky
+    if existing_cart_item is None:
+        new_cart_item = CartItem(
+            consumer_id=data['consumer_id'], product_id=data['product_id'])
+        db.session.add(new_cart_item)
+        db.session.commit()
+        return jsonify(new_cart_item.to_dict()), 201
+    else:
+        return jsonify({}), 200
 
 @app.delete('/cart_items/<int:id>')
 def delete_cart(id):
-    # try:
-        cart = CartItem.query.filter(CartItem.id == id).first()
-        db.session.delete(cart)
-        db.session.commit()
-        return {}, 204
-    # except:
-    #     return jsonify({"error": "cart not found"}), 404
+    try:
+        # want to delete by the product_id
+        cart_item = CartItem.query.filter(CartItem.product_id == id).first()
+        if cart_item:
+            db.session.delete(cart_item)
+            db.session.commit()
+            return jsonify({}), 204
+        else:
+            return jsonify({"error": "cart_item not found"}), 404
+    except SQLAlchemyError as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
 
 # ==========================Product==============================
 

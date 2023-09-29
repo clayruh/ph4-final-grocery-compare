@@ -7,7 +7,7 @@ function Main() {
         <div className="bg-main">
 
              <Outlet/>
-         
+
 
         </div>
     )

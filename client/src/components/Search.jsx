@@ -6,6 +6,7 @@ export default function Search({ setFilteredProducts }) {
 
   return (
     <div className="search-bar">
+
       <input
         type="text"
         id="search"
