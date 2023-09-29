@@ -1,5 +1,9 @@
 export default function CompareCard({ cartItem }) {
 
+    function loopPrices() {
+        
+    }
+
     return (
         <>
             <img
@@ -9,7 +13,7 @@ export default function CompareCard({ cartItem }) {
             />
             <p>Product: {cartItem.product.name}</p>
             {/* how to iterate through a list to get the price? */}
-            <p>Price: {cartItem.product.prices.price}</p>
+            <p>Price: {cartItem.product.prices[0].price}</p>
         </>
     )
 }

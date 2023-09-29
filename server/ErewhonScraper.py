@@ -39,6 +39,10 @@ class ErewhonScraper:
             name = header_tag.get_text() if header_tag else None
             image = img_tag.get('src') if img_tag else None
 
+            # in name attribute, if "Organic", remove "Organic"
+
+            # if statement if name string already exists only create th Price & set the product attribute to existing Product object
+            # else:
             new_product = Product(image=image, name=name)
             new_price = Price(price=price, product=new_product, supermarket_id=1)
             self.items.append(new_product)
