@@ -69,7 +69,7 @@ class Price(db.Model, SerializerMixin):
     serialize_rules = ('-product.prices', '-supermarket.prices')
 
     def __repr__(self):
-        return f"Price obj{self.id}: ${self.price} for {self.product_id}"
+        return f"Price obj{self.id}: ${self.price} for {self.product.name}"
 
 #====================== SUPERMARKET ==============================#
 class Supermarket(db.Model, SerializerMixin):

@@ -33,7 +33,7 @@ export default function ProductCard({ productObj, addCartItems }) {
             <h3>{productObj.name}</h3>
             <img
               src={productObj.image}
-              alt="product"
+              alt={productObj.name}
               className="product-image"
             />
           </div>
