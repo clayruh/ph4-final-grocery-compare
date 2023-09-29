@@ -27,8 +27,8 @@ const CartItem = ({cartItem}) => {
 
           <li>{cartItem.product.name}</li>
           <button onClick={handleRemove}>Remove item</button>
-          <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button>
-          <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button>
+          {/* <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button> */}
+        
         </ul>
 
     </>
