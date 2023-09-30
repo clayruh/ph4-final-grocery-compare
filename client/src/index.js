@@ -10,10 +10,10 @@ import Home from './components/Home';
 import ProductList from './components/ProductList'
 import SupermarketList from './components/SupermarketList';
 import About from './components/About'
-import CartList from './components/CartList'
+import CompareList from './components/CompareList'
 
 // LOADER 
-import { getProducts, getSupermarketLoader, getCartItems } from './loaders'
+import { getProducts, getSupermarketLoader } from './loaders'
 
 const router = createBrowserRouter([
 
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     element: <App/>,
     children: [
       {
-        index: true, // this indicates default route
+        index: true, // default route
         element: <Home/>
       },
       {
@@ -40,9 +40,9 @@ const router = createBrowserRouter([
         loader: getSupermarketLoader
       },
       {
-        path:"/shopping-cart",
-        element: <CartList/>,
-        loader: getCartItems
+        path:"/compare-stores",
+        element: <CompareList/>,
+        loader: getProducts
       }
     ]
   }

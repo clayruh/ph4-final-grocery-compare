@@ -5,12 +5,13 @@ import CartList from './CartList'
 import Search from './Search';
 
 export default function ProductList() {
-  // LOADER //
-  const { allProducts } = useLoaderData() || {}
+  // LOADERS //
+  const { allProducts, cartItems } = useLoaderData() || {}
 
   // STATES //
+
   const [filteredProducts, setFilteredProducts] = useState("")
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(cartItems)
 
   const searchProducts = allProducts?.filter(product => { 
     return product.name.toLowerCase().includes(filteredProducts.toLowerCase())})
@@ -30,16 +31,19 @@ export default function ProductList() {
   return (
     <>
       <div className="product-page">
-        <div className="cart-list">
-          <CartList cart={cart}/>
-        </div>
         <div className="search">
           <Search setFilteredProducts={setFilteredProducts} />
         </div>
-        <div className="products-container">
-          {mapProductCards}
+        <div className="content">
+          <div className="product-list">
+            <div className="products-container">
+              {mapProductCards}
+            </div>
+          </div>
+          <div className="cart-list">
+            <CartList cart={cart} setCart={setCart}/>
+          </div>
         </div>
-       
       </div>
     </>
   );

@@ -1,17 +1,33 @@
+/* IMPORTED FONT OPTIONS.... */
+/* font-family: 'Abel', sans-serif;
+font-family: 'Cormorant', serif;
+font-family: 'Edu QLD Beginner', cursive;
+font-family: 'Homemade Apple', cursive;
+font-family: 'Love Ya Like A Sister', cursive;
+font-family: 'Rock Salt', cursive;
+font-family: 'Yomogi', cursive;
+ */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: rgb(69, 68, 68)
   /* border: 1px solid orange; */
 }
 
 nav {
   text-align: center;
+  margin: 2rem;
+  
   
 }
 
 nav a {
   padding: 0.5em 1em;
+  color: inherit;
+  font-family: 'Cormorant', serif;
+
   
 }
 
@@ -21,14 +37,7 @@ body {
   background-color: #F6F2E9
 }
 
-button {
-  border: none;
-  border-radius: 1rem;
-  height: 2rem;
-  width: 6rem;
-  background-color: lightblue;
 
-}
 
 .temporary {
   text-align: center;
@@ -44,12 +53,12 @@ button {
 
 .link {
   text-decoration: none;
-  margin: 1.2em;
+  font-size: 2rem;
+  margin: 1rem;
 }
 
 .link:hover {
-  background-color: black;
-  color: white;
+  color: rgb(36, 206, 209);
   transition: .5s;
 }
 
@@ -62,6 +71,9 @@ button {
   align-items: flex-start;
   padding: 8px;
   margin-left: -4px;
+ 
+  
+
 }
 
 /* Product Card Styles */
@@ -70,7 +82,8 @@ button {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  width: calc(5% - 0.5px);
+  width: 15rem;
+  height: 25rem;
   padding-top: 16%;
   position: relative;
   background-color: #fff;
@@ -87,9 +100,21 @@ button {
     
   }
 
+  /* Plus and Minus Icon Styles */
+.product-card .icon {
+  position: absolute;
+  bottom: 10px; /* Adjust the vertical position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px; /* Adjust the icon size as needed */
+  color: #000; /* Set the icon color */
+  cursor: pointer;
+}
+
   .product-card img {
     width: 50%;
     object-fit: contain;
+
  
   }
 
@@ -104,24 +129,54 @@ button {
     justify-content: space-between;
   }
 
+
  
  /* ----------------------BUTTON ----------------------  */
 
-  button.add-to-cart {
-    background-color: #007bff;
-    color: #fff;
+  .add-to-cart {
+    background-color: inherit;
+    /* color: #fff; */
     border: none;
     border-radius: 50%;
-    padding: 0.5em 1em;
+    padding: 1em 1em;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.2s ease-in-out;
+    /* transition: background-color 0.2s ease-in-out; */
     font-size: 1.5em;
 
-    &:hover {
-      background-color: #0056b3;
-    }
+
   }
+}
+
+/* this button is for the list */
+button {
+  border: none;
+  border-radius: 10rem;
+  height: 2rem;
+  width: 6rem;
+  background-color: inherit;
+
+}
+
+
+/* list effects */
+.search-stores {
+  width: 13rem;
+  height: 4rem;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: white;
+  background-color: rgb(104,126,143);
+}
+
+
+.search-stores:hover {
+  color: rgb(104,126,143);
+  background-color: white;
+  border: 1px solid rgb(104,126,143);
+  transition: .4s;
+  cursor: pointer;
+
 }
 
  /* ----------------------SEARCH ----------------------  */
@@ -132,27 +187,141 @@ button {
   border-radius: 8px;
   padding: 10px;
   width: 500px;
+  
 }
 
 .search-input {
   flex-grow: 1;
   border: none;
-  padding: 5px 10px; 
+  padding: 20px 30px; 
   font-size: 14px;
   background-repeat: no-repeat;
+  border-radius: 5rem;
   background-position: right 10px center; 
+  
+  
+
 }
+
+h1 {
+  font-family: 'Yomogi' ;
+  color:rgb(104, 126, 144);
+  font-size: 8rem;
+  margin: 2rem;
+}
+
+
 
 
 
 h3 {
   display: block;
-  font-size: 0.9em;
+  font-size: 1.5rem;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Cormorant', serif;
+  font-weight: 500; 
 
+}
+
+
+
+.cart-header {
+  font-size: 3rem;
+  font-family: 'Cormorant', serif;
+}
+
+
+/* this will handle the list to side bar */
+.product-page {
+  display: flex;
+  flex-direction: column; /* Stack the search and content vertically */
+}
+
+.content {
+  display: flex;
+  flex-direction: row; /* Arrange the product list and cart horizontally */
+}
+
+.product-list {
+  flex: 8; /* Take up the left column */
+  padding: 0 1rem; /* Add padding to separate columns */
+}
+
+.cart-list {
+  flex: 2; /* Take up the right column */
+  padding: 0 1rem; /* Add padding to separate columns */
+}
+
+/* this is handling the two coloumn grid in the list */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+
+.cart-item-details {
+  flex-grow:1;
+  justify-content: space-between;
+  margin: 2rem;
+
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Allow the details to grow and push the button to the right */
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-right: 1rem;
+}
+
+.remove-button {
+  background-color: #ff5733; /* Choose your button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: #e64c29; /* Choose your button hover color */
+  transition: background-color 0.3s;
+}
+
+
+/* Add this CSS to your existing styles */
+.icon-container {
+  position: absolute;
+  bottom: 20px; /* Adjust the value to control the vertical position */
+  left: 50%; /* Center the icons horizontally */
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.add-to-cart.remove {
+  
+  background-color: #ff5733;
+  color: white;
+  
+}
+
+/* -----------------------------for the compare cart------------------------ */
+
+.product-image{ 
+  width: 80%;
+  object-fit: contain;
+  margin: 0 auto;
 }

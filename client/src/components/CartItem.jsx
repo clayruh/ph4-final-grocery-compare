@@ -1,38 +1,35 @@
-import React from 'react'
+import React from "react";
 
-// this is out cart Item
-const CartItem = ({cartItem}) => {
-
-  function handleRemove(){
-    // use the 'delete' route from the backend
-    // use the 'delete' route from the backend
-    console.log('removed item')
+export default function CartItem({ cartItem, cart, setCart }) {
+  function deleteCartItem(removedCartItem) {
+    const filteredItems = cart.filter((item) => item.id !== removedCartItem.id);
+    setCart(filteredItems);
   }
 
-  function handleSearchStore(){ 
-    
-    console.log("lets checkout the stores!!!!!!!")
+  function handleRemove() {
+    const OPTIONS = { method: "DELETE" };
+    fetch(`http://localhost:5555/cart_items/${cartItem.product_id}`, OPTIONS)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        deleteCartItem(cartItem);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
-
-
 
   return (
-    <>
-      <p>Consumer id: {cartItem.consumer_id}</p>
-        <ul>Products: 
-      {/* make a for loop of all the product names and prices */}
-
-
-
-
-          <li>{cartItem.product.name}</li>
-          <button onClick={handleRemove}>Remove item</button>
-          <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button>
-          <button onClick={handleSearchStore(navigate => ('/SearchStores'))}></button>
+    <div>
+      <div className="cart-item-details">
+        <ul>
+          <li className="item">{cartItem.product.name}</li>
         </ul>
-
-    </>
-  )
+        <button className="remove-button item" onClick={handleRemove}>
+          Remove
+        </button>
+      </div>
+    </div>
+  );
 }
-
-export default CartItem
