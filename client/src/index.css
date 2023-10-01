@@ -19,6 +19,7 @@ font-family: 'Yomogi', cursive;
 nav {
   text-align: center;
   margin: 2rem;
+  margin-bottom: 15rem;
   
   
 }
@@ -30,6 +31,8 @@ nav a {
 
   
 }
+
+
 
 body {
   margin: 0;
@@ -44,7 +47,7 @@ body {
 }
 
 .shopping-list {
-  padding: 6rem;
+  /* padding: 6rem; */
 }
 
 .main-header h1 {
@@ -78,7 +81,6 @@ body {
 
 /* Product Card Styles */
 .product-card {
-  border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
@@ -134,7 +136,7 @@ body {
  /* ----------------------BUTTON ----------------------  */
 
   .add-to-cart {
-    background-color: inherit;
+    background-color: transparent;
     /* color: #fff; */
     border: none;
     border-radius: 50%;
@@ -167,7 +169,16 @@ button {
   margin-bottom: 2rem;
   color: white;
   background-color: rgb(104,126,143);
+  position: absolute;
+  right: 10rem;
 }
+
+.cart-items {
+  position: absolute;
+  top: 60rem;
+  right: 5rem;
+}
+
 
 
 .search-stores:hover {
@@ -187,6 +198,10 @@ button {
   border-radius: 8px;
   padding: 10px;
   width: 500px;
+  position: absolute;
+  top:32rem;
+  left: 80px;
+
   
 }
 
@@ -265,7 +280,14 @@ h3 {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
+
 }
+
+/* .cart-items {
+  position: absolute;
+  top: 60rem;
+  right: 5rem;
+} */
 
 
 .cart-item-details {

@@ -4,7 +4,7 @@ export default function CompareCard({ cartItem }) {
     const numericPrices = cartItem.product.prices.map((priceObj) => {
         const priceString = priceObj.price;
         const numericPrice = parseFloat(priceString.replace(/[^\d.]/g, ''));
-        return numericPrice.toFixed(2); // Format numeric price with two decimal places
+        return numericPrice.toFixed(2);
     });
 
     const mapPrices = numericPrices.map((numericPrice, index) => (
@@ -13,6 +13,7 @@ export default function CompareCard({ cartItem }) {
 
   return (
     <div className="compare-prices-item">
+        {/* can we make the cards smaller? and somehow make the products scrollable but keep the total price stuck to the bottom? */}
         <div className="product-card">
             <div className="card-content">
             <h3>{cartItem.product.name}</h3>
