@@ -347,3 +347,69 @@ ul {
   object-fit: contain;
   margin: 0 auto;
 }
+
+
+/* ... (existing styles) */
+
+/* Styles for the Compare Stores page */
+
+.compare-cart {
+  text-align: center;
+  margin: 2rem;
+}
+
+.compare-prices-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.compare-prices-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background-color: #F1E7DD;
+  border-radius: 8px;
+}
+
+.compare-prices-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+}
+
+.compare-prices-item {
+  flex-basis: calc(33.33% - 1rem);
+  margin: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.compare-prices-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-image {
+  width: 80%;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.price-div {
+  font-weight: bold;
+}
+
+.compare-price-total {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
