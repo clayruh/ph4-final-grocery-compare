@@ -1,10 +1,20 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
+from sqlalchemy.orm import validates, Session
+from sqlalchemy.exc import NoResultFound
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import MetaData
+
 import flask
 
 from config import db
+# db = SQLAlchemy(app)
+# session = Session()
 
-#=============================== CUSTOMERS ==================================#
+
+# =============================== CUSTOMERS ==================================#
+
+
 class Consumer(db.Model, SerializerMixin):
     __tablename__ = 'consumers'
 
@@ -17,7 +27,9 @@ class Consumer(db.Model, SerializerMixin):
     product = association_proxy('cart_items', 'product')
     serialize_rules = ('-cart_items.consumer', )
 
-#=============================== CART ITEM ==================================#
+# =============================== CART ITEM ==================================#
+
+
 class CartItem(db.Model, SerializerMixin):
     __tablename__ = 'cart_items'
 
@@ -29,7 +41,9 @@ class CartItem(db.Model, SerializerMixin):
     product = db.relationship("Product", back_populates='cart_items')
     serialize_rules = ('-consumer.cart_items', '-product.cart_items')
 
-#=============================== PRODUCT ==================================#
+# =============================== PRODUCT ==================================#
+
+
 class Product(db.Model, SerializerMixin):
     __tablename__ = 'products'
 
@@ -54,8 +68,10 @@ class Product(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f"Product obj{self.id}: Item name: {self.name}"
-    
-#=============================== PRICE ==================================#
+
+# =============================== PRICE ==================================#
+
+
 class Price(db.Model, SerializerMixin):
     __tablename__ = 'prices'
 
@@ -71,13 +87,34 @@ class Price(db.Model, SerializerMixin):
     def __repr__(self):
         return f"Price obj{self.id}: ${self.price} for {self.product.name}"
 
-#====================== SUPERMARKET ==============================#
+# ====================== SUPERMARKET ==============================#
+
+
 class Supermarket(db.Model, SerializerMixin):
     __tablename__ = 'supermarkets'
 
     id = db.Column(db.Integer, primary_key=True, unique=True)
     name = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
+
+# -----------Below-----------
+# This checks to see if there is a grocery store with exisiting id, if not exists will create
+# Have to add because getting error message in running Erewhon Scraper that there is existing element with that id and will not run script. -ask tiff... but would this be added to the scraper instead? hmm....
+    # @validates('id')
+    # def validate_id(self, key, value):
+    #     supermarket_id = value
+    #     existing = session.query(Supermarket).get(supermarket_id)
+    #     if not existing:
+    #         new_market = Supermarket(
+    #             id=self.id, name=self.name, address=self.address)
+    #         db.session.add(new_market)
+    #         db.session.commit()
+    #         # db.session.add(Supermarket(self.id, self.name, self.address))
+    #         # db.session.commit()
+    #     # ask chett: can you also write : (new_market = Supermarket(self.id, self.name, self.address) return new_market)
+    #     else:
+    #         return existing
+# -----------End -----------
 
 # for the connection between Product and the bridge Price
     prices = db.relationship("Price", back_populates='supermarket')
