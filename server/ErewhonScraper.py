@@ -5,14 +5,13 @@ from models import Product, db, Supermarket, Price
 import ipdb
 from app import app
 
-
 class ErewhonScraper:
-    def __init__(self):
+    def __init__(self, page, supermarket):
         self.items = []
+        self.page = page
         self.prices = []
         self.browser = self.init_browser()
-        self.supermarket = Supermarket(
-            id=1, name="Erewhon", address="339 N Beverly Dr Beverly Hills, CA 90210")
+        self.supermarket = supermarket
 
     def init_browser(self):
         options = webdriver.ChromeOptions()
@@ -56,24 +55,26 @@ class ErewhonScraper:
                 price=price, product=new_product, supermarket_id=1)
             self.items.append(new_product)
             self.prices.append(new_price)
-
-        with app.app_context():
-            db.session.add_all(self.items)
-            db.session.add_all(self.prices)
-            db.session.add(self.supermarket)
-            db.session.commit()
+        # with app.app_context():
+        db.session.add_all(self.items)
+        db.session.add_all(self.prices)
+        db.session.add(self.supermarket)
+        db.session.commit()
 
     def print_items(self):
         for item in self.items:
             print(item)
 
-
-ipdb.set_trace()
+# ipdb.set_trace()
 
 if __name__ == '__main__':
-    scraper = ErewhonScraper(1)
-    scraper.make_item()
-    # scraper.print_items()
+    with app.app_context():
+        supermarket = Supermarket.query.filter(Supermarket.name=="Erewhon").first()
+        if not supermarket:
+            supermarket = Supermarket(id=1, name="Erewhon", address="339 N Beverly Dr Beverly Hills, CA 90210")
+        instance = ErewhonScraper('https://shop.erewhonmarket.com/subcategory/55001/organic-fruits', supermarket)
+        instance.make_item()
+
 
     # ------------------ NOTES ON REMOVING THE 'ORGANIC' WORD -----------------------------
     # in name attribute, if "Organic", remove "Organic"
