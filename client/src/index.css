@@ -19,28 +19,20 @@ font-family: 'Yomogi', cursive;
 nav {
   text-align: center;
   margin: 2rem;
-  margin-bottom: 15rem;
-  
-  
+  margin-bottom: 2rem;
 }
 
 nav a {
   padding: 0.5em 1em;
   color: inherit;
-  font-family: 'Cormorant', serif;
-
-  
+  font-family: 'Cormorant', serif; 
 }
-
-
 
 body {
   margin: 0;
-  padding: 4rem;
+  padding: 2rem;
   background-color: #F6F2E9
 }
-
-
 
 .temporary {
   text-align: center;
@@ -74,9 +66,6 @@ body {
   align-items: flex-start;
   padding: 8px;
   margin-left: -4px;
- 
-  
-
 }
 
 /* Product Card Styles */
@@ -96,10 +85,8 @@ body {
   overflow: hidden;
   background-color: #F1E7DD;
   
-
   &:hover {
     transform: scale(1.05);
-    
   }
 
   /* Plus and Minus Icon Styles */
@@ -116,8 +103,6 @@ body {
   .product-card img {
     width: 50%;
     object-fit: contain;
-
- 
   }
 
   .card-content {
@@ -131,8 +116,6 @@ body {
     justify-content: space-between;
   }
 
-
- 
  /* ----------------------BUTTON ----------------------  */
 
   .add-to-cart {
@@ -160,7 +143,6 @@ button {
 
 }
 
-
 /* list effects */
 .search-stores {
   width: 13rem;
@@ -179,15 +161,12 @@ button {
   right: 5rem;
 }
 
-
-
 .search-stores:hover {
   color: rgb(104,126,143);
   background-color: white;
   border: 1px solid rgb(104,126,143);
   transition: .4s;
   cursor: pointer;
-
 }
 
  /* ----------------------SEARCH ----------------------  */
@@ -198,11 +177,8 @@ button {
   border-radius: 8px;
   padding: 10px;
   width: 500px;
-  position: absolute;
   top:32rem;
   left: 80px;
-
-  
 }
 
 .search-input {
@@ -213,21 +189,14 @@ button {
   background-repeat: no-repeat;
   border-radius: 5rem;
   background-position: right 10px center; 
-  
-  
-
 }
 
 h1 {
   font-family: 'Yomogi' ;
   color:rgb(104, 126, 144);
-  font-size: 8rem;
-  margin: 2rem;
+  font-size: 7rem;
+  margin: 1.5rem;
 }
-
-
-
-
 
 h3 {
   display: block;
@@ -238,16 +207,12 @@ h3 {
   margin-inline-end: 0px;
   font-family: 'Cormorant', serif;
   font-weight: 500; 
-
 }
-
-
 
 .cart-header {
   font-size: 3rem;
   font-family: 'Cormorant', serif;
 }
-
 
 /* this will handle the list to side bar */
 .product-page {
@@ -261,12 +226,12 @@ h3 {
 }
 
 .product-list {
-  flex: 8; /* Take up the left column */
+  flex: 7; /* Take up the left column */
   padding: 0 1rem; /* Add padding to separate columns */
 }
 
 .cart-list {
-  flex: 2; /* Take up the right column */
+  flex: 3; /* Take up the right column */
   padding: 0 1rem; /* Add padding to separate columns */
 }
 
@@ -280,7 +245,6 @@ h3 {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
-
 }
 
 /* .cart-items {
@@ -322,7 +286,6 @@ ul {
   transition: background-color 0.3s;
 }
 
-
 /* Add this CSS to your existing styles */
 .icon-container {
   position: absolute;
@@ -337,7 +300,6 @@ ul {
   
   background-color: #ff5733;
   color: white;
-  
 }
 
 /* -----------------------------for the compare cart------------------------ */
