@@ -155,6 +155,19 @@ button {
   right: 10rem;
 }
 
+.back-button {
+  /* border-radius:5rem; */
+  height: 10rem;
+  width: 10rem;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: white;
+  background-color: rgb(104,126,143);
+  position: absolute;
+  right: 5rem;
+  top: 25rem;
+}
+
 .cart-items {
   position: absolute;
   top: 60rem;

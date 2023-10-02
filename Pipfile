@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 
-SQLAlchemy = "1.4.49"
+SQLAlchemy = "*"
 Faker = "14.2.0"
 Flask = "*"
 Flask-Migrate = "*"

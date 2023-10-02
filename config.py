@@ -21,6 +21,9 @@ db = SQLAlchemy(metadata=metadata)
 migrate = Migrate(app, db)
 db.init_app(app)
 
+with app.app_context():
+    session = db.session
+
 # Instantiate REST API
 api = Api(app)
 
