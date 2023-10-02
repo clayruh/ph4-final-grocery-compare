@@ -65,9 +65,9 @@ return (
                     const supermarket_id = priceObj.supermarket_id
                     const totalPrice = totalPricesBySupermarket[supermarket_id] || 0;
                     return (
-                        <p key={supermarket_id}>
+                        <div className="supermarket-total-price" key={supermarket_id}>
                             {supermarket_name}: ${totalPrice.toFixed(2)}
-                        </p>
+                        </div>
                     );
                 })}
         </div>

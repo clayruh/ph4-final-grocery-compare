@@ -325,13 +325,9 @@ ul {
 
 /* Styles for the Compare Stores page */
 
-/* Styles for the Compare Stores page */
-
-/* Styles for the Compare Stores page */
-
 .compare-cart {
   text-align: center;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .compare-prices-container {
@@ -376,6 +372,7 @@ ul {
   text-align: center;
   overflow: hidden;
   width: 100%;
+  display: flex;
 }
 
 .compare-prices-item h3 {
@@ -391,11 +388,31 @@ ul {
 
 .price-div {
   font-weight: bold;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding-top: 16%;
+}
+
+.price-column {
+  display: flex;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 var(--price-padding, 7em); /* Use a CSS variable for padding */
 }
 
 .compare-price-total {
   margin-top: 1rem;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background-color: #F1E7DD;
+  border-radius: 8px;
+  margin: 0 auto; /* Center the labels horizontally */
 }
 
 
