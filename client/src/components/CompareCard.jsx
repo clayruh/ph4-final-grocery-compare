@@ -8,14 +8,15 @@ export default function CompareCard({ cartItem }) {
   });
 
   const mapPrices = numericPrices.map((numericPrice, index) => (
-    <div key={index} className="price-row">
+    <div key={index} className="price-column">
       ${numericPrice}
     </div>
   ));
+  
 
   return (
     <div className="compare-prices-item">
-      {/* can we make the cards smaller? and somehow make the products scrollable but keep the total price stuck to the bottom? */}
+      {/* can we make the cards smaller? and somehow make the products scrollable? */}
       <div className="product-card">
         <div className="card-content">
           <h3>{cartItem.product.name}</h3>
