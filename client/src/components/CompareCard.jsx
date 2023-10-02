@@ -8,10 +8,11 @@ export default function CompareCard({ cartItem }) {
   });
 
   const mapPrices = numericPrices.map((numericPrice, index) => (
-    <div key={index} className="price-row">
+    <div key={index} className="price-column">
       ${numericPrice}
     </div>
   ));
+  
 
   return (
     <div className="compare-prices-item">
