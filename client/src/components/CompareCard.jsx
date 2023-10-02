@@ -16,6 +16,7 @@ export default function CompareCard({ cartItem }) {
 
   return (
     <div className="compare-prices-item">
+      {/* can we make the cards smaller? and somehow make the products scrollable? */}
       <div className="product-card">
         <div className="card-content">
           <h3>{cartItem.product.name}</h3>

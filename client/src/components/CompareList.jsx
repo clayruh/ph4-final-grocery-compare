@@ -12,6 +12,27 @@ function SearchStores() {
         navigate('/products')
     }
 
+    // Create an object to store the total prices for each supermarket
+    const totalPricesBySupermarket = {};
+
+    // Calculate total prices for each supermarket based on the cartItems
+    cartItems.forEach((cartItem) => {
+        // Iterate through prices for each cart item
+        cartItem.product.prices.forEach((priceObj) => {
+            const { supermarket_id, price } = priceObj;
+            const numericPrice = parseFloat(price.replace(/[^\d.]/g, ''));
+
+            if (!totalPricesBySupermarket[supermarket_id]) {
+                totalPricesBySupermarket[supermarket_id] = numericPrice;
+            } else {
+                totalPricesBySupermarket[supermarket_id] += numericPrice;
+            }
+        });
+    });
+
+    // Now, totalPricesBySupermarket contains the total prices for each supermarket
+    console.log(totalPricesBySupermarket);
+
     const mappedCartItems = cartItems.map(cartItem => (
         <CompareCard 
         key={cartItem.id} 
@@ -20,8 +41,6 @@ function SearchStores() {
     ))
 
 
-// Inside your SearchStores component's return statement
-// Inside your SearchStores component's return statement
 return (
     <div className="compare-cart">
       <h2>Compare Stores</h2>
@@ -42,9 +61,6 @@ return (
       </div>
     </div>
   );
-  
-  
-  
   
 }
 export default SearchStores
