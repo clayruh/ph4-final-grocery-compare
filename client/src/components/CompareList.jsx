@@ -57,7 +57,19 @@ return (
           </div>
         </div>
         {mappedCartItems}
-        <div className="compare-price-total">Total price:</div>
+        <div className="compare-price-total">
+            <h4>Total Prices:</h4>
+                {cartItems[0].product.prices.map((priceObj) => {
+                    const supermarket_name = priceObj.supermarket.name
+                    const supermarket_id = priceObj.supermarket_id
+                    const totalPrice = totalPricesBySupermarket[supermarket_id] || 0;
+                    return (
+                        <p key={supermarket_id}>
+                            {supermarket_name}: ${totalPrice.toFixed(2)}
+                        </p>
+                    );
+                })}
+        </div>
       </div>
     </div>
   );
