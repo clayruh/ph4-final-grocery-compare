@@ -37,31 +37,26 @@ class ErewhonScraper:
             img_tag = product.find('div', class_='img').find(
                 'img') if product.find('div', class_='img') else None
 
-            # print(header_tag.get_text())
-
-            # for i in header_tag.get_text():
-            #     print(i.split())
-
             price = price_tag.label.string if price_tag else None
             name = header_tag.get_text() if header_tag else None
             image = img_tag.get('src') if img_tag else None
 
-            # ----------------- THIS IS REMOVING ORGANIC -----------------------------
+            # ----------------- THIS IS REMOVING "ORGANIC" -----------------------------
             word_list = name.split()
             new_list = [word for word in word_list if word != 'Organic']
             separator = ' '
-            joined_list = separator.join(new_list)
-            print(joined_list)
-            # ------------------END REMOVING ORGANIC -----------------------------
+            removed_organic = separator.join(new_list)
+            print(removed_organic)
+            # ------------------ END REMOVING "ORGANIC" -----------------------------
 
             # if statement if name string already exists only create the Price & set the product attribute to existing Product object
-            # else
 
-            new_product = Product(image=image, name=name)
+            new_product = Product(image=image, name=removed_organic)
             new_price = Price(
                 price=price, product=new_product, supermarket_id=1)
             self.items.append(new_product)
             self.prices.append(new_price)
+
         with app.app_context():
             db.session.add_all(self.items)
             db.session.add_all(self.prices)
@@ -79,17 +74,6 @@ if __name__ == '__main__':
     scraper = ErewhonScraper(1)
     scraper.make_item()
     # scraper.print_items()
-
-
-# prices = [product.find(
-#     'p', class_='price').label.string for product in products if product.find('p', class_='price')]
-
-
-# label = [product.find('p', class_='header').get_text() for product in products if product.find(
-#     'p', class_='header')]
-
-# image = [product.find('div', class_='img').find('img').get('src')
-#          for product in products if product.find('div', class_='img') and product.find('div', class_='img').find('img')]
 
     # ------------------ NOTES ON REMOVING THE 'ORGANIC' WORD -----------------------------
     # in name attribute, if "Organic", remove "Organic"
