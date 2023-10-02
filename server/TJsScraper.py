@@ -6,11 +6,12 @@ import ipdb
 from app import app
 
 class TJsScraper:
-    def __init__(self):
+    def __init__(self, page, supermarket):
         self.items = []
+        self.page = page
         self.prices = []
         self.browser = self.init_browser()
-        self.supermarket = Supermarket(id=2, name="Trader Joe's", address="233 Spring St, New York, NY 10013")
+        self.supermarket = supermarket
 
     def init_browser(self):
         options = webdriver.ChromeOptions()
@@ -18,8 +19,7 @@ class TJsScraper:
         return webdriver.Chrome(options=options)
 
     def get_page(self):
-        self.browser.get(
-            'https://www.traderjoes.com/home/products/category/fruits-116')
+        self.browser.get(self.page)
         time.sleep(2)
         html_text = self.browser.page_source
         return BeautifulSoup(html_text, 'lxml')
@@ -54,19 +54,34 @@ class TJsScraper:
             self.prices.append(new_price)
             self.items.append(new_item)
         # tells flask that the context
-        with app.app_context():
-            db.session.add_all(self.items)
-            db.session.add_all(self.prices)
-            db.session.add(self.supermarket)
-            db.session.commit()
+        # with app.app_context():
+        db.session.add_all(self.items)
+        db.session.add_all(self.prices)
+        db.session.add(self.supermarket)
+        db.session.commit()
 
     def print_items(self):
         for item in self.items:
             print(item)
 
 if __name__ == '__main__':
-    instance = TJsScraper()
-    instance.make_item()
+    with app.app_context():
+        supermarket = Supermarket.query.filter(Supermarket.name=="Trader Joe's").first()
+        if not supermarket:
+            supermarket = Supermarket(id=2, name="Trader Joe's", address="233 Spring St, New York, NY 10013")
+
+        instance = TJsScraper('https://www.traderjoes.com/home/products/category/fruits-116', supermarket)
+        instance.make_item()
+            
+        instance = TJsScraper('https://www.traderjoes.com/home/products/category/fruits-116?filters=%7B%22page%22%3A2%7D', supermarket)
+        instance.make_item()
+
+        # instance = TJsScraper('https://www.traderjoes.com/home/products/category/fruits-116?filters=%7B%22page%22%3A2%7D', supermarket)
+        # instance.make_item()
+        
+        # instance = TJsScraper('https://www.traderjoes.com/home/products/category/fruits-116?filters=%7B%22page%22%3A2%7D', supermarket)
+        # instance.make_item()
+
 
     # items = [product.find('h2', class_='ProductCard_card__title__text__uiWLe').a.string for product in products if product.find('h2', class_='ProductCard_card__title__text__uiWLe')]
 
