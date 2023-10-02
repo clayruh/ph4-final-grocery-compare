@@ -21,6 +21,8 @@ export default function ProductList() {
       key={productObj.id} 
       productObj={productObj}
       addCartItems={addCartItems}
+      cart={cart}
+      setCart={setCart}
     />
   ))
 
