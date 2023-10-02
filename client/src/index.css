@@ -170,7 +170,7 @@ button {
 
 .cart-items {
   position: absolute;
-  top: 60rem;
+  top: 40rem;
   right: 5rem;
 }
 
@@ -414,4 +414,19 @@ ul {
   border-radius: 8px;
   margin: 0 auto; /* Center the labels horizontally */
 }
+
+
+
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem; /* Adjust the margin as needed */
+}
+
+.pagination button.active {
+  font-weight: bold;
+  font-size: medium;
+}
+
 
