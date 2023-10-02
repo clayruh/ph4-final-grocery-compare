@@ -25,11 +25,11 @@ class TJsScraper:
         return BeautifulSoup(html_text, 'lxml')
     
     # # not fully sure about this code
-    # def check_db(self, name, price, supermarket):
-    #     existing_product = Product.query.filter_by(name=name).first()
-    #     existing_price = Price.query.filter_by(price=price).first()
-    #     existing_supermarket = Supermarket.query.filter_by(supermarket=supermarket)
-    #     return existing_product is not None
+    def check_db(self, name, price, supermarket):
+        existing_product = Product.query.filter_by(name=name).first()
+        existing_price = Price.query.filter_by(price=price).first()
+        existing_supermarket = Supermarket.query.filter_by(supermarket=supermarket)
+        return existing_product is not None
 
     def make_item(self):
         soup = self.get_page()
@@ -49,16 +49,36 @@ class TJsScraper:
             image = 'https://www.traderjoes.com' + img_tag.get('src') if item_tag else None
             price = price_tag.string if price_tag else None
 
+            # if name already exists, don't create another object, only get the prices
+
+            existing_product = Product.query.filter_by(name=name).first()
+
+        if existing_product:
+            # If the product exists, add a new price to it
+            new_price = Price(price=price, product=existing_product, supermarket_id=2)
+        else:
+            # If the product doesn't exist, create a new product and add the price
             new_item = Product(name=name, image=image)
             new_price = Price(price=price, product=new_item, supermarket_id=2)
-            self.prices.append(new_price)
             self.items.append(new_item)
+
+            self.prices.append(new_price)
+
+            # new_item = Product(name=name, image=image)
+            # new_price = Price(price=price, product=new_item, supermarket_id=2)
+            # self.prices.append(new_price)
+            # self.items.append(new_item)
+
         # tells flask that the context
         with app.app_context():
             db.session.add_all(self.items)
             db.session.add_all(self.prices)
             db.session.add(self.supermarket)
             db.session.commit()
+
+        return new_price
+
+
 
     def print_items(self):
         for item in self.items:
